@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 06:04:57 by hamza             #+#    #+#             */
-/*   Updated: 2021/05/31 06:04:58 by hamza            ###   ########.fr       */
+/*   Updated: 2021/06/08 18:30:09 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "philo_0.h"
 
 int		ft_atoi(const char *str)
 {
