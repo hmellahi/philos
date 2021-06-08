@@ -20,7 +20,7 @@ void	*routine(void *val)
 	i = philo->index;
 	n = philo->state->count;
 	int j = -1;
-	while (++j < philo->state->n_must_eat)
+	while (philo->state->n_must_eat < 0 || ++j < philo->state->n_must_eat)
 	{
 		print_msg(PHILO_THINKS, philo);
 		pthread_mutex_lock(&forks[i % n]);
@@ -63,23 +63,29 @@ void	*checker(void *val)
 				print_msg(PHILO_DIES, &philos[i]);
 				exit(0);
 			}
-			if (philos[i].eat_count == n_must_eat)
+			if (n_must_eat > 0 && philos[i].eat_count == n_must_eat)
 				full++;
 		}
 		if (full == n)
 			return (val);
-		sleep(1);
+		usleep(100);
 	}
 	return (val);
 }
 
 void	check_args(int ac, t_string	*av)
 {
+	int	i;
+
 	if (ac != 5 && ac != 6)
 	{
 		printf("wt are u doing step bruh");
 		exit(1);
 	}
+	i = -1;
+	while (av[++i])
+		if (!is_number)
+		
 }
 
 void	init(int ac, char* av[], t_state *state, t_philo **philos) 
@@ -91,7 +97,10 @@ void	init(int ac, char* av[], t_state *state, t_philo **philos)
 	state->die_time = ft_atoi(av[2]);
 	state->eat_time = ft_atoi(av[3]);
 	state->sleep_time = ft_atoi(av[4]);
-	state->n_must_eat = ft_atoi(av[5]);
+	if (ac == 6)
+		state->n_must_eat = ft_atoi(av[5]);
+	else
+		state->n_must_eat = -1;
 	state->forks = sf_malloc(sizeof(pthread_mutex_t) * state->count);
 	// TODO : VALIDATE ARGS
 	i = -1;
@@ -146,7 +155,7 @@ int main(int ac, char* av[])
 	init(ac, av, &state, &philos);
 	int i = -1;
 	g_start = 0;
-	g_start = get_curr_time(&state);
+	// g_start = get_curr_time(&state);
 	// while (++i < 5)
 	// {
 	// 	printf("%d\n", philos[i].eat_count);
