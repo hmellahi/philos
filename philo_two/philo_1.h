@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_0.h                                          :+:      :+:    :+:   */
+/*   philo_1.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/31 06:06:08 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/08 23:01:57 by hamza            ###   ########.fr       */
+/*   Created: 2021/06/09 02:06:49 by hamza             #+#    #+#             */
+/*   Updated: 2021/06/09 02:27:38 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_0_H
-# define PHILO_0_H
+#ifndef PHILO_1_H
+# define PHILO_1_H
 # include <pthread.h>
 # include <sys/time.h>
 # include <semaphore.h>
 # include <stdio.h>
 # include <stdlib.h>
-#include <unistd.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <sys/stat.h>
 
 # define ON_TABLE 1
 # define USED 0
@@ -61,6 +63,7 @@ typedef	struct	s_philo
 	int		eat_count;
 	t_state	*state;
 	t_ul	last_time_eat;
+	sem_t	*semaphore;
 }				t_philo;
 
 int		ft_atoi(const char *str);

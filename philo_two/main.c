@@ -1,4 +1,4 @@
-#include "philo_0.h"
+#include "philo_1.h"
 
 
 int		to_ms(float time, int i)
@@ -8,7 +8,7 @@ int		to_ms(float time, int i)
 
 void	*routine(void *val)
 {
-	t_philo	*philo;
+	t_philo			*philo;
 	pthread_mutex_t *forks;
 	int				i;
 	int				n;
@@ -23,16 +23,14 @@ void	*routine(void *val)
 	while (philo->state->n_must_eat < 0 || ++j < philo->state->n_must_eat)
 	{
 		print_msg(PHILO_THINKS, philo);
-		pthread_mutex_lock(&forks[i % n]);
-		pthread_mutex_lock(&forks[(i + 1) % n]);
 		philo->last_time_eat = get_curr_time(philo->state);
+		sem_wait(philo->semaphore);
 		philo->eat_count++;
 		print_msg(PHILO_TAKES_FORK, philo);
 		print_msg(PHILO_TAKES_FORK, philo);
 		print_msg(PHILO_EATING, philo);
 		usleep(to_ms(philo->state->eat_time, 0));
-		pthread_mutex_unlock(&forks[i % n]);
-		pthread_mutex_unlock(&forks[(i + 1) % n]);
+		sem_post(philo->semaphore);
 		print_msg(PHILO_SLEEPS, philo);
 		usleep(to_ms(philo->state->sleep_time, 0));
 	}
@@ -51,25 +49,24 @@ void	*checker(void *val)
 	i = -1;
 	n = philos[1].state->count;
 	n_must_eat = philos[0].state->n_must_eat;
-	while(1)
-	{
-		full = 0;
-		i = -1;
-		while (++i < n)
-		{
-			// printf("%d [[%lu]]\n",philos[i].index, get_curr_time(philos[i].state) - philos[i].last_time_eat);
-			if ((get_curr_time(philos[i].state) - philos[i].last_time_eat) >= philos[i].state->die_time)
-			{
-				print_msg(PHILO_DIES, &philos[i]);
-				exit(0);
-			}
-			if (n_must_eat > 0 && philos[i].eat_count >= n_must_eat)
-				full++;
-		}
-		if (full == n)
-			return (val);
-		usleep(100);
-	}
+	// while(1)
+	// {
+	// 	full = 0;
+	// 	i = -1;
+	// 	while (++i < n)
+	// 	{
+	// 		if ((get_curr_time(philos[i].state) - philos[i].last_time_eat) >= philos[i].state->die_time)
+	// 		{
+	// 			print_msg(PHILO_DIES, &philos[i]);
+	// 			exit(0);
+	// 		}
+	// 		if (n_must_eat > 0 && philos[i].eat_count >= n_must_eat)
+	// 			full++;
+	// 	}
+	// 	if (full == n)
+	// 		return (val);
+	// 	usleep(100);
+	// }
 	return (val);
 }
 
@@ -96,7 +93,22 @@ void	check_args(int ac, t_string	*av)
 			print_err(NOT_VALID_ARGS);
 }
 
-void	init(int ac, char* av[], t_state *state, t_philo **philos) 
+void		init_semaphore(sem_t **semaphore, t_state *state)
+{
+	*semaphore = sem_open("dsa", O_CREAT, S_IRWXU, 0); 
+    if (*semaphore == SEM_FAILED)
+	{
+		perror("sem_open failed"); 
+		exit(EXIT_FAILURE); 
+	} 
+    int i;
+    i = -1;
+    // sem_post(semaphore);
+    while (++i < 2)
+        sem_post(*semaphore);
+}
+
+void	init(int ac, char* av[], t_state *state, t_philo **philos, sem_t *semaphore) 
 {
 	int	i;
 
@@ -105,16 +117,20 @@ void	init(int ac, char* av[], t_state *state, t_philo **philos)
 	state->die_time = ft_atoi(av[2]);
 	state->eat_time = ft_atoi(av[3]);
 	state->sleep_time = ft_atoi(av[4]);
+	init_semaphore(&semaphore, state);
+	// sem_wait(semaphore);
+	// puts("ss");
+	// sem_post(semaphore);
 	if (ac == 6)
 		state->n_must_eat = ft_atoi(av[5]);
 	else
 		state->n_must_eat = -1;
-	state->forks = sf_malloc(sizeof(pthread_mutex_t) * state->count);
+	state->forks = malloc(sizeof(pthread_mutex_t) * state->count);
 	// TODO : VALIDATE ARGS
 	i = -1;
 	while (++i < state->count)
 		pthread_mutex_init(&state->forks[i], NULL);
-	*philos = sf_malloc(sizeof(t_philo) * state->count);
+	*philos = malloc(sizeof(t_philo) * state->count);
 	i = -1;
 	while (++i < state->count)
 	{
@@ -125,10 +141,11 @@ void	init(int ac, char* av[], t_state *state, t_philo **philos)
 		(*philos)[i].index = i;
 		(*philos)[i].eat_count = 0;
 		(*philos)[i].last_time_eat = get_curr_time((*philos)[i].state);
+		(*philos)[i].semaphore = semaphore;
 	}
 }
 
-void    clear_state(pthread_t *threads, t_state	*state, t_philo *philos)
+void    clear_state(t_state	*state, t_philo *philos, sem_t *semaphore)
 {
 	int	i;
 	int	n;
@@ -139,38 +156,40 @@ void    clear_state(pthread_t *threads, t_state	*state, t_philo *philos)
 		pthread_mutex_destroy(&state->forks[i]);
 	free(state->forks);
 	free(philos);
-	free(threads);
+	sem_close(semaphore);
 }
 
-void	init_threads(pthread_t **threads, t_state *state, t_philo *philos)
+void	init_threads(t_state *state, t_philo *philos)
 {
-	int i;
-	int	n;
+	int			i;
+	int			n;
 
 	n = state->count + 1;
-	*threads = malloc(sizeof(pthread_t) * n);
+	pthread_t	threads[n];
 	i = -1;
 	while (++i < state->count)
-		if (pthread_create(&(*threads)[i], NULL, &routine, &philos[i]) != 0)
+		if (pthread_create(&threads[i], NULL, &routine, &philos[i]) != 0)
 			print_err(COULDNT_CREATE_THREAD); 
-	if (pthread_create(&(*threads)[i], NULL, &checker, &philos) != 0)
+	if (pthread_create(&threads[i], NULL, &checker, &philos) != 0)
 		print_err(COULDNT_CREATE_THREAD); 
 	i = -1;
 	while (++i < n)
-		if (pthread_join((*threads)[i], NULL))
+		if (pthread_join(threads[i], NULL))
 			print_err(COULDNT_CREATE_THREAD);
 }
 
 unsigned long g_start;
 
+
 int main(int ac, char* av[])
 {
 	t_state	state;
 	t_philo *philos;
-	pthread_t *threads;
-	init(ac, av, &state, &philos);
+	sem_t *semaphore;
+
+	init(ac, av, &state, &philos, semaphore);
 	g_start = 0;
-	init_threads(&threads, &state, philos);
-	clear_state(threads, &state, philos);
+	init_threads(&state, philos);
+	clear_state(&state, philos, semaphore);
 	return 0;
 }

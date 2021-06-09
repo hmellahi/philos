@@ -6,11 +6,11 @@
 /*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/06/08 23:55:06 by hamza            ###   ########.fr       */
+/*   Updated: 2021/06/09 02:25:31 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_0.h"
+#include "philo_1.h"
 
 void    print_err(int msg_index)
 {
