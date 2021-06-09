@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_1.h                                          :+:      :+:    :+:   */
+/*   philo_3.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 02:06:49 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/09 02:27:38 by hamza            ###   ########.fr       */
+/*   Updated: 2021/06/09 18:50:15 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <sys/stat.h>
+# include <signal.h>
 
 # define ON_TABLE 1
 # define USED 0
@@ -36,11 +37,12 @@ enum	messages {
 	COULDNT_CREATE_THREAD,
 	COULDNT_JOIN_THREAD,
 	NOT_VALID_ARGS,
+	COULDNT_CREATE_PROCESS,
 	PHILO_EATING,
 	PHILO_DIES,
 	PHILO_SLEEPS,
 	PHILO_THINKS,
-	PHILO_TAKES_FORK
+	PHILO_TAKES_FORK,
 };
 
 typedef	struct	s_state
@@ -66,9 +68,8 @@ typedef	struct	s_philo
 	sem_t	*semaphore;
 }				t_philo;
 
-int		ft_atoi(const char *str);
-void	*sf_malloc(int size);
-void    print_msg(int msg_index, t_philo *philo);
-void    print_err(int msg_index);
+int				ft_atoi(const char *str);
+void			print_msg(int msg_index, t_philo *philo);
+void			print_err(int msg_index);
 unsigned long   get_curr_time(t_state *state);
 #endif

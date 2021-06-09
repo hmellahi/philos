@@ -23,7 +23,7 @@ void	*routine(void *val)
 	while (philo->state->n_must_eat < 0 || ++j < philo->state->n_must_eat)
 	{
 		print_msg(PHILO_THINKS, philo);
-		pthread_mutex_lock(&forks[i % n]);
+		pthread_mutex_lock(&forks[i]);
 		pthread_mutex_lock(&forks[(i + 1) % n]);
 		philo->last_time_eat = get_curr_time(philo->state);
 		philo->eat_count++;
@@ -96,11 +96,8 @@ void	check_args(int ac, t_string	*av)
 			print_err(NOT_VALID_ARGS);
 }
 
-void	init(int ac, char* av[], t_state *state, t_philo **philos) 
+void	init_state(t_state *state, t_string *av, int ac)
 {
-	int	i;
-
-	check_args(ac, av);
 	state->count = ft_atoi(av[1]);
 	state->die_time = ft_atoi(av[2]);
 	state->eat_time = ft_atoi(av[3]);
@@ -109,12 +106,19 @@ void	init(int ac, char* av[], t_state *state, t_philo **philos)
 		state->n_must_eat = ft_atoi(av[5]);
 	else
 		state->n_must_eat = -1;
-	state->forks = sf_malloc(sizeof(pthread_mutex_t) * state->count);
-	// TODO : VALIDATE ARGS
+	state->forks = malloc(sizeof(pthread_mutex_t) * state->count);
+}
+
+void	init(int ac, char* av[], t_state *state, t_philo **philos) 
+{
+	int	i;
+
+	check_args(ac, av);
+	init_state(state, av, ac);
 	i = -1;
 	while (++i < state->count)
 		pthread_mutex_init(&state->forks[i], NULL);
-	*philos = sf_malloc(sizeof(t_philo) * state->count);
+	*philos = malloc(sizeof(t_philo) * state->count);
 	i = -1;
 	while (++i < state->count)
 	{

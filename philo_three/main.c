@@ -1,5 +1,16 @@
-#include "philo_1.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/09 17:17:51 by hmellahi          #+#    #+#             */
+/*   Updated: 2021/06/09 21:58:49 by hmellahi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "philo_3.h"
 
 int		to_ms(float time, int i)
 {
@@ -20,6 +31,7 @@ void	*routine(void *val)
 	i = philo->index;
 	n = philo->state->count;
 	int j = -1;
+	philo->semaphore = sem_open("forks", 0);
 	while (philo->state->n_must_eat < 0 || ++j < philo->state->n_must_eat)
 	{
 		print_msg(PHILO_THINKS, philo);
@@ -43,30 +55,22 @@ void	*checker(void *val)
 {
 	int	i;
 	int	n;
-	t_philo	*philos;
+	t_philo	*philo;
 	int		full;
 	int		n_must_eat;
 
-	philos = *(t_philo **)val;
-	i = -1;
-	n = philos[1].state->count;
-	n_must_eat = philos[0].state->n_must_eat;
+	philo = (t_philo *)val;
+	n_must_eat = philo->state->n_must_eat;
 	while(1)
 	{
-		full = 0;
-		i = -1;
-		while (++i < n)
+		if ((get_curr_time(philo->state) - philo->last_time_eat) >= philo->state->die_time)
 		{
-			if ((get_curr_time(philos[i].state) - philos[i].last_time_eat) >= philos[i].state->die_time)
-			{
-				print_msg(PHILO_DIES, &philos[i]);
-				exit(0);
-			}
-			if (n_must_eat > 0 && philos[i].eat_count >= n_must_eat)
-				full++;
+			print_msg(PHILO_DIES, philo);
+			exit(120);
 		}
-		if (full == n)
-			return (val);
+		// printf("[%d | %d]\n", n_must_eat, philo->eat_count);
+		if (n_must_eat > 0 && philo->eat_count >= n_must_eat)
+			exit(255);
 		usleep(100);
 	}
 	return (val);
@@ -74,7 +78,7 @@ void	*checker(void *val)
 
 int		is_number(t_string str)
 {
-	while (*str)
+	while (*str)	
 	{
 		if (*str < 48 && *str > 57)
 			return (0);
@@ -98,7 +102,10 @@ void	check_args(int ac, t_string	*av)
 void		init_semaphore(sem_t **semaphore, t_state *state)
 {
 	sem_unlink("forks");
-	*semaphore = sem_open("forks", O_CREAT, 0644, state->count); 
+	*semaphore = sem_open("forks", O_CREAT, 0644, state->count);
+	// int val;
+	// sem_getvalue(*semaphore, &val);
+	// printf("%d", val);
     if (*semaphore == SEM_FAILED)
 	{
 		perror("sem_open failed"); 
@@ -118,9 +125,6 @@ void	init(int ac, char* av[], t_state *state, t_philo **philos, sem_t *semaphore
 	state->eat_time = ft_atoi(av[3]);
 	state->sleep_time = ft_atoi(av[4]);
 	init_semaphore(&semaphore, state);
-	// sem_wait(semaphore);
-	// puts("ss");
-	// sem_post(semaphore);
 	if (ac == 6)
 		state->n_must_eat = ft_atoi(av[5]);
 	else
@@ -158,29 +162,63 @@ void    clear_state(t_state	*state, t_philo *philos, sem_t *semaphore)
 	free(philos);
 	sem_close(semaphore);
 }
+int pids[5];
 
-void	init_threads(t_state *state, t_philo *philos)
+int		spawn_proc(t_philo philo)
 {
-	int			i;
-	int			n;
+	pid_t	pid;
+	pthread_t	threads[2];
+	int		i;
 
-	n = state->count + 1;
-	pthread_t	threads[n];
-	i = -1;
-	while (++i < state->count)
-		if (pthread_create(&threads[i], NULL, &routine, &philos[i]) != 0)
-			print_err(COULDNT_CREATE_THREAD); 
-	if (pthread_create(&threads[i], NULL, &checker, &philos) != 0)
-		print_err(COULDNT_CREATE_THREAD); 
-	i = -1;
-	while (++i < n)
-		if (pthread_join(threads[i], NULL))
+	pid = fork();
+	if (pid == -1)
+		return (pid);
+	if (pid == 0)
+	{
+		// philo.semaphore = sem_open("forks", 0);
+		if (pthread_create(&threads[0], NULL, &routine, &philo) != 0)
 			print_err(COULDNT_CREATE_THREAD);
+		if (pthread_create(&threads[1], NULL, &checker,  &philo) != 0)
+				print_err(COULDNT_CREATE_THREAD);
+		i = -1;
+		while (++i < 2)
+			if (pthread_join(threads[i], NULL))
+				print_err(COULDNT_CREATE_THREAD);
+		// printf("I am child process my ID is   =  %d\n" , getpid());
+		// philos[i]->pid = getpid();
+	}
+	static int j;
+	pids[j] = pid;
+	// printf("I am child process my ID is   =  %d\n" , pid);
+	j++;
+	return (0);
 }
 
-unsigned long g_start;
+int		init_processes(t_state *state, t_philo *philos)
+{
+	int	i;
+	int wstatus;
 
-
+	i = -1;
+	while (++i < state->count)
+		if (spawn_proc(philos[i]) == -1)
+			print_err(COULDNT_CREATE_PROCESS);
+	while (waitpid(-1, &wstatus, 0) != -1);
+	if (WIFEXITED(wstatus))
+	{
+		int exit_value = WEXITSTATUS(wstatus);
+		if (exit_value == 120)
+		{
+			i = -1;
+			while (++i < state->count)
+			{
+				printf("process killed : %d \n", pids[i]);
+				kill(pids[i], SIGKILL);
+			}
+		}
+	}
+	return 1;
+}
 int main(int ac, char* av[])
 {
 	t_state	state;
@@ -188,8 +226,8 @@ int main(int ac, char* av[])
 	sem_t *semaphore;
 
 	init(ac, av, &state, &philos, semaphore);
-	g_start = 0;
-	init_threads(&state, philos);
-	clear_state(&state, philos, semaphore);
+	// init_threads(&state, philos);
+	// clear_state(&state, philos, semaphore);
+	init_processes(&state, philos);
 	return 0;
 }
