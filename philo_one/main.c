@@ -25,16 +25,19 @@ void	*routine(void *val)
 		print_msg(PHILO_THINKS, philo);
 		pthread_mutex_lock(&forks[i]);
 		pthread_mutex_lock(&forks[(i + 1) % n]);
-		philo->last_time_eat = get_curr_time(philo->state);
 		philo->eat_count++;
 		print_msg(PHILO_TAKES_FORK, philo);
 		print_msg(PHILO_TAKES_FORK, philo);
 		print_msg(PHILO_EATING, philo);
-		usleep(to_ms(philo->state->eat_time, 0));
+		philo->last_time_eat = get_curr_time(philo->state);
+		usleep(to_ms(philo->state->eat_time, 0) - 20000);
+		while (get_curr_time(philo->state) - philo->last_time_eat < philo->state->eat_time);
 		pthread_mutex_unlock(&forks[i % n]);
 		pthread_mutex_unlock(&forks[(i + 1) % n]);
 		print_msg(PHILO_SLEEPS, philo);
-		usleep(to_ms(philo->state->sleep_time, 0));
+		unsigned long start = get_curr_time(philo->state);
+		usleep(to_ms(sleep_time, 0) - 20000);
+		while ((get_curr_time(philo->state) - start) < sleep_time);
 	}
 	return 0;
 }
@@ -158,7 +161,7 @@ void	init_threads(pthread_t **threads, t_state *state, t_philo *philos)
 		if (pthread_create(&(*threads)[i], NULL, &routine, &philos[i]) != 0)
 			print_err(COULDNT_CREATE_THREAD); 
 	if (pthread_create(&(*threads)[i], NULL, &checker, &philos) != 0)
-		print_err(COULDNT_CREATE_THREAD); 
+		print_err(COULDNT_CREATE_THREAD);
 	i = -1;
 	while (++i < n)
 		if (pthread_join((*threads)[i], NULL))
@@ -170,8 +173,9 @@ unsigned long g_start;
 int main(int ac, char* av[])
 {
 	t_state	state;
-	t_philo *philos;
+	t_philo	*philos;
 	pthread_t *threads;
+
 	init(ac, av, &state, &philos);
 	g_start = 0;
 	init_threads(&threads, &state, philos);

@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/06/09 17:23:27 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:19:32 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@ void    print_err(int msg_index)
 }
 
 extern unsigned long g_start;
-unsigned long   get_curr_time(t_state *state)
+unsigned long   get_curr_time()
 {
     unsigned long time_in_ms;
-    gettimeofday(&state->current_time, NULL);
-    time_in_ms = state->current_time.tv_usec / 1000 + state->current_time.tv_sec * 1000;
+    struct timeval current_time;
+
+    gettimeofday(&current_time, NULL);
+    time_in_ms = current_time.tv_usec / 1000 + current_time.tv_sec * 1000;
     return (time_in_ms);
 }
 
@@ -38,7 +40,8 @@ void    print_msg(int msg_index, t_philo *philo)
 {
     unsigned long time_in_ms;
 
-    time_in_ms = get_curr_time(philo->state);
+    time_in_ms = get_curr_time();
+    sem_wait(philo->state->print_sem);
     if (msg_index == PHILO_TAKES_FORK)
         printf("%lu %d has taken a fork\n", time_in_ms, philo->index + 1);
     else if (msg_index == PHILO_EATING)
@@ -49,4 +52,5 @@ void    print_msg(int msg_index, t_philo *philo)
         printf("%lu %d is thinking\n", time_in_ms, philo->index + 1);
     else if (msg_index == PHILO_SLEEPS)
         printf("%lu %d is sleeping\n", time_in_ms, philo->index + 1);
+    sem_post(philo->state->print_sem);
 }

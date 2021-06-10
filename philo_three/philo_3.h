@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 02:06:49 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/09 18:50:47 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/10 21:48:42 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,18 @@ enum	messages {
 
 typedef	struct	s_state
 {
-	pthread_mutex_t	*forks;
 	int				count;
 	t_ul			die_time;
 	t_ul			eat_time;
 	t_ul			sleep_time;
 	int				n_must_eat;
-	struct timeval	current_time;
+	sem_t			*print_sem;
+	sem_t			*forks;
 }				t_state;
 
 typedef	struct	s_philo
 {
-	int		status;
-	char	l_fork;
-	int		pid;
-	char	r_fork;
+	pid_t	pid;
 	int		index;
 	int		eat_count;
 	t_state	*state;
@@ -72,5 +69,5 @@ typedef	struct	s_philo
 int				ft_atoi(const char *str);
 void			print_msg(int msg_index, t_philo *philo);
 void			print_err(int msg_index);
-unsigned long   get_curr_time(t_state *state);
+unsigned long   get_curr_time();
 #endif
