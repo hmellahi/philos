@@ -6,13 +6,13 @@
 #    By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 16:13:15 by hmellahi          #+#    #+#              #
-#    Updated: 2021/06/10 21:06:53 by hmellahi         ###   ########.fr        #
+#    Updated: 2021/06/11 21:57:39 by hmellahi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CLANG = clang
 
-FLAGS = -g -fsanitize=address #-Wall -Werror -Wextra
+FLAGS = -g #-fsanitize=address #-Wall -Werror -Wextra
 
 NAME = philo_one
 

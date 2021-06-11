@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 17:17:51 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/06/11 01:02:41 by hamza            ###   ########.fr       */
+/*   Updated: 2021/06/11 21:19:08 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_usleep(t_ul time)
     t_ul	start;
 
 	start = get_curr_time();
-	usleep((time * 3) / 4);
+	usleep(time - 20000);
 	while ((get_curr_time() - start) < time);
 }
 
@@ -33,11 +33,13 @@ void	*routine(void *val)
 	while (philo->state->n_must_eat < 0 || ++j < philo->state->n_must_eat)
 	{
 		print_msg(PHILO_THINKS, philo);
+		philo->status = THINKING;
 		sem_wait(philo->state->waiter);
 		sem_wait(forks);
 		print_msg(PHILO_TAKES_FORK, philo);
 		sem_wait(forks);
 		sem_post(philo->state->waiter);
+		philo->status = EATING;
 		print_msg(PHILO_TAKES_FORK, philo);
 		print_msg(PHILO_EATING, philo);
 		philo->last_time_eat = get_curr_time();
@@ -46,7 +48,8 @@ void	*routine(void *val)
 		
 		sem_post(forks);
 		sem_post(forks);
-	
+
+		philo->status = SLEEPING;
 		print_msg(PHILO_SLEEPS, philo);
 		ft_usleep(philo->state->sleep_time);
 	}
@@ -63,18 +66,15 @@ void	*checker(void *val)
 
 	philo = (t_philo *)val;
 	n_must_eat = philo->state->n_must_eat;
+	// printf("time : %lu\n", (get_curr_time() - g_time) / 1000);
 	while(1)
 	{
+		if (philo->status != EATING && get_curr_time() >= (philo->state->die_time + philo->last_time_eat))
+			print_msg(PHILO_DIES, philo);
 		if (n_must_eat > 0 && philo->eat_count >= n_must_eat)
 			exit(25);
-		t_ul x = get_curr_time();
-		if (x >= (philo->state->die_time + philo->last_time_eat))
-		{
-			// printf("%lu|%lu|%lu\n", x, philo->last_time_eat, philo->state->die_time + philo->last_time_eat);
-			print_msg(PHILO_DIES, philo);
-		}
 		// printf("[%d | %d]\n", n_must_eat, philo->eat_count);
-		usleep(1000);
+		usleep(10);
 	}
 	return (val);
 }
@@ -83,7 +83,7 @@ int		is_number(t_string str)
 {
 	while (*str)
 	{
-		if (*str < 48 || *str > 57)
+		if (*str < '0' || *str > '9')
 			return (0);
 		str++;
 	}
@@ -137,7 +137,8 @@ void	init(int ac, char* av[], t_state *state, t_philo **philos)
 		(*philos)[i].state = state;
 		(*philos)[i].index = i;
 		(*philos)[i].eat_count = 0;
-		(*philos)[i].last_time_eat = state->start;
+		(*philos)[i].last_time_eat = g_time;
+		(*philos)[i].status = THINKING;
 	}
 }
 
@@ -185,13 +186,18 @@ int		init_processes(t_state *state, t_philo *philos)
 	while (++i < state->count)
 		if ((philos[i].pid = spawn_proc(philos[i])) == -1)
 			print_err(COULDNT_CREATE_PROCESS);
-	waitpid(-1, &status, 0);
-	exit_status = WEXITSTATUS(status);
-	if (exit_status == DIE_STATUS_CODE)
+	int j = -1;
+	j = -1;
+	while(++j < state->count)
 	{
-		i = -1;
-		while (++i < state->count)
-			kill(philos[i].pid, SIGKILL);
+		waitpid(-1, &status, 0);
+		exit_status = WEXITSTATUS(status);
+		if (exit_status == DIE_STATUS_CODE)
+		{
+			i = -1;
+			while (++i < state->count)
+				kill(philos[i].pid, SIGKILL);
+		}
 	}
 	// }
 	return 1;
@@ -201,11 +207,13 @@ int main(int ac, char* av[])
 	t_state	state;
 	t_philo *philos;
 
+
     // if (semaphore == SEM_FAILED)
 	// {
 	// 	perror("sem_open failed");
 	// 	exit(EXIT_FAILURE);
 	// }
+	g_time = get_curr_time();
 	sem_unlink("print");
 	state.print_sem = sem_open("print", O_CREAT, 0644, 1);
 	sem_unlink("waiter");

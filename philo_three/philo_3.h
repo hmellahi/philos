@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_3.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 02:06:49 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/11 00:21:42 by hamza            ###   ########.fr       */
+/*   Updated: 2021/06/11 20:50:13 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef char*			t_string;
 typedef	unsigned long	t_ul;
 
 enum	status {
-	HUNGRY,
+	THINKING,
 	SLEEPING,
 	EATING
 };
@@ -68,10 +68,14 @@ typedef	struct	s_philo
 	t_state	*state;
 	t_ul	last_time_eat;
 	sem_t	*semaphore;
+	char			status;
 }				t_philo;
 
 int				ft_atoi(const char *str);
 void			print_msg(int msg_index, t_philo *philo);
 void			print_err(int msg_index);
 unsigned long   get_curr_time();
+
+unsigned long g_time;
+
 #endif

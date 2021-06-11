@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   messages.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/06/11 00:11:26 by hamza            ###   ########.fr       */
+/*   Updated: 2021/06/11 21:38:49 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_3.h"
-
+#include <string.h>
 void    print_err(int msg_index)
 {
-    t_string    *messages;
+    t_string    messages[4];
 
     messages[0] = "couldnt create a thread";
     messages[1] = "couldnt join a thread";
-    messages[1] = "not valid args";
+    messages[2] = "not valid args";
     messages[3] = "COULDNT_CREATE_PROCESS";
-    printf("%s\n", messages[msg_index]);
+    // printf("%s\n", messages[msg_index]);
     // clear_state();
+    write(STDERR_FILENO, messages[msg_index], strlen(messages[msg_index]));
+    write(STDERR_FILENO, "\n", 1);
     exit(1);
 }
-
-extern unsigned long g_start;
 unsigned long   get_curr_time()
 {
     unsigned long time_in_ms;
@@ -40,7 +40,7 @@ void    print_msg(int msg_index, t_philo *philo)
 {
     unsigned long time_in_ms;
 
-    time_in_ms = get_curr_time();
+    time_in_ms = get_curr_time() / 1000;// - g_time / 1000;
     sem_wait(philo->state->print_sem);
     if (msg_index == PHILO_TAKES_FORK)
         printf("%lu %d has taken a fork\n", time_in_ms, philo->index + 1);

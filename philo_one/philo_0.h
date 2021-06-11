@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_0.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 06:06:08 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/08 23:01:57 by hamza            ###   ########.fr       */
+/*   Updated: 2021/06/11 21:53:29 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef char*			t_string;
 typedef	unsigned long	t_ul;
 
 enum	status {
-	HUNGRY,
+	THINKING,
 	SLEEPING,
 	EATING
 };
@@ -44,12 +44,15 @@ enum	messages {
 typedef	struct	s_state
 {
 	pthread_mutex_t	*forks;
+	pthread_mutex_t	print_mutex;
+	pthread_mutex_t	waiter;
 	int				count;
 	t_ul			die_time;
 	t_ul			eat_time;
 	t_ul			sleep_time;
 	int				n_must_eat;
 	struct timeval	current_time;
+	t_ul			start_time;
 }				t_state;
 
 typedef	struct	s_philo
@@ -67,5 +70,5 @@ int		ft_atoi(const char *str);
 void	*sf_malloc(int size);
 void    print_msg(int msg_index, t_philo *philo);
 void    print_err(int msg_index);
-unsigned long   get_curr_time(t_state *state);
+unsigned long   get_curr_time();
 #endif
