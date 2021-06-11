@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_3.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 02:06:49 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/10 21:48:42 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/11 00:21:42 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@
 # include <fcntl.h>
 # include <sys/stat.h>
 # include <signal.h>
-
+# include <sys/types.h>
+# include <sys/wait.h>
 # define ON_TABLE 1
 # define USED 0
+# define DIE_STATUS_CODE 12
 typedef char*			t_string;
 typedef	unsigned long	t_ul;
 
@@ -51,9 +53,11 @@ typedef	struct	s_state
 	t_ul			die_time;
 	t_ul			eat_time;
 	t_ul			sleep_time;
+	t_ul			start;
 	int				n_must_eat;
 	sem_t			*print_sem;
 	sem_t			*forks;
+	sem_t			*waiter;
 }				t_state;
 
 typedef	struct	s_philo

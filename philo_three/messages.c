@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   messages.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/06/10 20:19:32 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/11 00:11:26 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ unsigned long   get_curr_time()
     struct timeval current_time;
 
     gettimeofday(&current_time, NULL);
-    time_in_ms = current_time.tv_usec / 1000 + current_time.tv_sec * 1000;
+    time_in_ms = current_time.tv_usec + current_time.tv_sec * 1000000;
     return (time_in_ms);
 }
 
@@ -47,7 +47,10 @@ void    print_msg(int msg_index, t_philo *philo)
     else if (msg_index == PHILO_EATING)
         printf("%lu %d is eating\n", time_in_ms, philo->index + 1);
     else if (msg_index == PHILO_DIES)
+    {
         printf("%lu %d died\n", time_in_ms, philo->index + 1);
+        exit(DIE_STATUS_CODE);
+    }
     else if (msg_index == PHILO_THINKS)
         printf("%lu %d is thinking\n", time_in_ms, philo->index + 1);
     else if (msg_index == PHILO_SLEEPS)
