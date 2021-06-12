@@ -3,51 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   philo_3.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 02:06:49 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/12 03:15:37 by hamza            ###   ########.fr       */
+/*   Updated: 2021/06/12 19:36:33 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_1_H
-# define PHILO_1_H
-# include <pthread.h>
-# include <sys/time.h>
-# include <semaphore.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+#ifndef PHILO_3_H
+# define PHILO_3_H
+# include "../utils/utils.h"
 # include <fcntl.h>
 # include <sys/stat.h>
 # include <signal.h>
 # include <sys/types.h>
 # include <sys/wait.h>
-# define ON_TABLE 1
-# define USED 0
-# define DIE_STATUS_CODE 12
-typedef char*			t_string;
-typedef	unsigned long	t_ul;
 
-enum	status {
-	THINKING,
-	SLEEPING,
-	EATING
-};
-
-enum	messages {
-	COULDNT_CREATE_THREAD,
-	COULDNT_JOIN_THREAD,
-	NOT_VALID_ARGS,
-	COULDNT_CREATE_PROCESS,
-	PHILO_EATING,
-	PHILO_DIES,
-	PHILO_SLEEPS,
-	PHILO_THINKS,
-	PHILO_TAKES_FORK
-};
-
-typedef	struct	s_state
+typedef struct s_state
 {
 	int				count;
 	t_ul			die_time;
@@ -60,7 +32,7 @@ typedef	struct	s_state
 	sem_t			*waiter;
 }				t_state;
 
-typedef	struct	s_philo
+typedef struct s_philo
 {
 	pid_t	pid;
 	int		index;
@@ -68,22 +40,17 @@ typedef	struct	s_philo
 	t_state	*state;
 	t_ul	last_time_eat;
 	sem_t	*semaphore;
-	char			status;
+	char	status;
 }				t_philo;
 
-int				ft_atoi(const char *str);
 void			print_msg(int msg_index, t_philo *philo);
-int				print_err(int msg_index);
-unsigned long	get_curr_time();
 void			eat(t_philo *philo);
 void			take_forks(t_philo *philo);
 void			sleeps(t_philo *philo);
-void	throw_forks(sem_t *forks);
-void	think(t_philo *philo);
-void	ft_usleep(t_ul time);
-void	init(int ac, char* av[], t_state *state, t_philo **philos);
-void	*checker(void *val);
-void	*routine(void *val);
-int     check_args(int ac, t_string	*av);
-int		is_number(t_string str);
+void			throw_forks(sem_t *forks);
+void			think(t_philo *philo);
+void			init(int ac, char *av[], t_state *state, t_philo **philos);
+void			*checker(void *val);
+void			*routine(void *val);
+int				is_number(t_string str);
 #endif

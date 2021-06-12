@@ -3,39 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 23:41:44 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/12 00:22:23 by hamza            ###   ########.fr       */
+/*   Updated: 2021/06/12 18:33:07 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_0.h"
-
-int		is_number(t_string str)
-{
-	while (*str)
-	{
-		if (*str < '0' || *str > '9')
-			return (0);
-		str++;
-	}
-	return (1);
-}
-
-int		check_args(int ac, t_string	*av)
-{
-	int	i;
-
-	if (ac != 5 && ac != 6)
-		return (print_err(NOT_VALID_ARGS));
-	i = 0;
-	while (++i < ac)
-		if (!is_number(av[i]) || ft_atoi(av[i]) < 0)
-			return (print_err(NOT_VALID_ARGS));
-	return (0);
-}
-
 
 void	init_state(t_state *state, t_string *av, int ac)
 {
@@ -50,7 +25,7 @@ void	init_state(t_state *state, t_string *av, int ac)
 	state->forks = malloc(sizeof(pthread_mutex_t) * state->count);
 }
 
-void	init(int ac, char* av[], t_state *state, t_philo **philos) 
+void	init(int ac, char **av, t_state *state, t_philo **philos)
 {
 	int	i;
 

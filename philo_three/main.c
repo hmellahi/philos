@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 17:17:51 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/06/12 03:11:20 by hamza            ###   ########.fr       */
+/*   Updated: 2021/06/12 19:43:42 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*routine(void *val)
 		throw_forks(forks);
 		sleeps(philo);
 	}
-	return 0;
+	return (0);
 }
 
 void	*checker(void *val)
@@ -39,9 +39,10 @@ void	*checker(void *val)
 
 	philo = (t_philo *)val;
 	n_must_eat = philo->state->n_must_eat;
-	while(1)
+	while (1)
 	{
-		if (philo->status != EATING && get_curr_time() >= (philo->state->die_time + philo->last_time_eat))
+		if (philo->status != EATING && get_time()
+			>= (philo->state->die_time + philo->last_time_eat))
 			print_msg(PHILO_DIES, philo);
 		if (n_must_eat > 0 && philo->eat_count >= n_must_eat)
 			exit(0);
@@ -50,26 +51,26 @@ void	*checker(void *val)
 	return (val);
 }
 
-void    clear_state(t_state	*state, t_philo *philos)
+void	clear_state(t_state	*state, t_philo *philos)
 {
 	free(philos);
 	sem_close(state->forks);
 	sem_close(state->print_sem);
 }
 
-int main(int ac, char* av[])
+int	main(int ac, char *av[])
 {
 	t_state	state;
-	t_philo *philos;
+	t_philo	*philos;
 
 	if (check_args(ac, av) == -1)
 		return (-1);
-	state.start = get_curr_time();
+	state.start = get_time();
 	sem_unlink("print");
 	state.print_sem = sem_open("print", O_CREAT, 0644, 1);
 	sem_unlink("waiter");
 	state.waiter = sem_open("waiter", O_CREAT, 0644, 1);
 	init(ac, av, &state, &philos);
 	clear_state(&state, philos);
-	return 0;
+	return (0);
 }
