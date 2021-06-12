@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_3.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 02:06:49 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/11 20:50:13 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/12 03:15:37 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,17 @@ typedef	struct	s_philo
 
 int				ft_atoi(const char *str);
 void			print_msg(int msg_index, t_philo *philo);
-void			print_err(int msg_index);
-unsigned long   get_curr_time();
-
-unsigned long g_time;
-
+int				print_err(int msg_index);
+unsigned long	get_curr_time();
+void			eat(t_philo *philo);
+void			take_forks(t_philo *philo);
+void			sleeps(t_philo *philo);
+void	throw_forks(sem_t *forks);
+void	think(t_philo *philo);
+void	ft_usleep(t_ul time);
+void	init(int ac, char* av[], t_state *state, t_philo **philos);
+void	*checker(void *val);
+void	*routine(void *val);
+int     check_args(int ac, t_string	*av);
+int		is_number(t_string str);
 #endif

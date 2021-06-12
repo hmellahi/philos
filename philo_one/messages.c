@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   messages.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/06/11 21:57:03 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/12 00:43:31 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_0.h"
 #include <string.h>
-void    print_err(int msg_index)
+
+int     print_err(int msg_index)
 {
     t_string    messages[4];
 
@@ -20,10 +21,17 @@ void    print_err(int msg_index)
     messages[1] = "couldnt join a thread";
     messages[2] = "not valid args";
     messages[3] = "COULDNT_CREATE_PROCESS";
-    write(STDERR_FILENO, messages[msg_index], strlen(messages[msg_index]));
-    write(STDERR_FILENO, "\n", 1);
-    system("leaks philo_one");
-    exit(1);
+    // write(STDERR_FILENO, messages[msg_index], strlen(messages[msg_index]));
+    // write(STDERR_FILENO, "\n", 1);
+    printf("%s\n", messages[msg_index]);
+    clear_state(NULL, NULL);
+    return (-1);
+}
+
+void	*die_and_exit(t_philo *philo, void *val)
+{
+	print_msg(PHILO_DIES, philo);
+	return (val);
 }
 
 t_ul   get_curr_time()
@@ -56,30 +64,4 @@ void    print_msg(int msg_index, t_philo *philo)
     else if (msg_index == PHILO_SLEEPS)
         printf("%lu %d is sleeping\n", time_in_ms, philo->index + 1);
     pthread_mutex_unlock(&philo->state->print_mutex);
-}
-
-int		ft_atoi(const char *str)
-{
-	int neg;
-	int i;
-	int num;
-
-	i = 0;
-	neg = 1;
-	num = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
-			|| str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			neg *= -1;
-		i++;
-	}
-	while (str[i] >= 48 && str[i] <= 57)
-	{
-		num = num * 10 + (str[i] - 48);
-		i++;
-	}
-	return (num * neg);
 }

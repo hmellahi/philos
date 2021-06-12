@@ -3,20 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 06:04:57 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/09 17:17:59 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/12 03:15:31 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_3.h"
 
+int		is_number(t_string str)
+{
+	while (*str)
+	{
+		if (*str < '0' || *str > '9')
+			return (0);
+		str++;
+	}
+	return (1);
+}
+
 int		ft_atoi(const char *str)
 {
 	int neg;
 	int i;
-	int num;
+	t_ul num;
 
 	i = 0;
 	neg = 1;
@@ -32,8 +43,19 @@ int		ft_atoi(const char *str)
 	}
 	while (str[i] >= 48 && str[i] <= 57)
 	{
+        if (num > 2147483647)
+            return (-1);
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
 	return (num * neg);
+}
+
+void	ft_usleep(t_ul time)
+{
+    t_ul	start;
+
+	start = get_curr_time();
+	usleep(time - 20000);
+	while ((get_curr_time() - start) < time);
 }

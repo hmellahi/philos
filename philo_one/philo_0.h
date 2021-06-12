@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_0.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 06:06:08 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/11 21:53:29 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/12 00:42:36 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,16 @@ typedef	struct	s_philo
 int		ft_atoi(const char *str);
 void	*sf_malloc(int size);
 void    print_msg(int msg_index, t_philo *philo);
-void    print_err(int msg_index);
+int		print_err(int msg_index);
 unsigned long   get_curr_time();
+void	init(int ac, char* av[], t_state *state, t_philo **philos);
+void	ft_usleep(t_ul time);
+void	eat(t_philo *philo);
+void	take_forks(t_philo *philo, pthread_mutex_t *forks);
+void	sleeps(t_philo *philo);
+void	throw_forks(t_philo *philo, pthread_mutex_t *forks);
+void	think(t_philo *philo);
+int		check_args(int ac, t_string	*av);
+void    clear_state( t_state	*state, t_philo *philos);
+void	*die_and_exit(t_philo *philo, void *val);
 #endif

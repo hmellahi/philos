@@ -3,29 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   messages.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/06/11 21:38:49 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/12 03:16:18 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_3.h"
 #include <string.h>
-void    print_err(int msg_index)
+
+int     print_err(int msg_index)
 {
     t_string    messages[4];
 
     messages[0] = "couldnt create a thread";
     messages[1] = "couldnt join a thread";
     messages[2] = "not valid args";
-    messages[3] = "COULDNT_CREATE_PROCESS";
+    messages[3] = "COULDNT CREATE  PROCESS";
     // printf("%s\n", messages[msg_index]);
-    // clear_state();
     write(STDERR_FILENO, messages[msg_index], strlen(messages[msg_index]));
     write(STDERR_FILENO, "\n", 1);
-    exit(1);
+    return (-1);
 }
+
 unsigned long   get_curr_time()
 {
     unsigned long time_in_ms;

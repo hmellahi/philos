@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+         #
+#    By: hamza <hamza@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 16:13:15 by hmellahi          #+#    #+#              #
-#    Updated: 2021/06/11 21:57:39 by hmellahi         ###   ########.fr        #
+#    Updated: 2021/06/12 03:11:44 by hamza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CLANG = clang
 
-FLAGS = -g #-fsanitize=address #-Wall -Werror -Wextra
+FLAGS = -lpthread -Wall -Werror -Wextra #-g #-fsanitize=address #-Wall -Werror -Wextra
 
 NAME = philo_one
 
-SRC = main.c utils.c messages.c
+SRC = main.c utils.c messages.c init.c life_circle.c
 
 all: $(NAME)
 
