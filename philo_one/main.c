@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 19:01:10 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/06/12 20:03:19 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:19:57 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,12 @@ void	*routine(void *val)
 	return (0);
 }
 
-void	*checker(void *val)
+int	checker(t_philo *philos)
 {
 	int		i;
-	t_philo	*philos;
 	int		full;
 	t_state	*state;
 
-	philos = *(t_philo **)val;
 	state = philos[0].state;
 	while (1)
 	{
@@ -49,16 +47,18 @@ void	*checker(void *val)
 		{
 			if (philos[i].status != EATING && (get_time()
 					- philos[i].last_time_eat) >= state->die_time)
-				return (die_and_exit(&philos[i], val));
+			{
+				print_msg(PHILO_DIES, &philos[i]);
+				return (-1);
+			}
 			if (philos[i].eat_count >= state->n_must_eat)
 				full++;
 		}
 		if (full == state->count)
-			return (val);
+			return (0);
 		usleep(100);
 	}
-	// sa
-	return (val);
+	return (0);
 }
 
 void	clear_state( t_state	*state, t_philo *philos, pthread_t *threads)
@@ -85,7 +85,7 @@ pthread_t	*init_threads(t_state *state, t_philo *philos)
 	int			n;
 	pthread_t	*threads;
 
-	n = state->count + 1;
+	n = state->count;
 	threads = malloc(sizeof(pthread_t) * n);
 	i = -1;
 	while (++i < state->count)
@@ -94,9 +94,9 @@ pthread_t	*init_threads(t_state *state, t_philo *philos)
 			print_err(COULDNT_CREATE_THREAD);
 		usleep(100);
 	}
-	if (pthread_create(&threads[i], NULL, &checker, &philos) != 0)
-		print_err(COULDNT_CREATE_THREAD);
 	i = -1;
+	if (checker(philos) == -1)
+		return (threads);
 	while (++i < n)
 		if (pthread_join(threads[i], NULL))
 			print_err(COULDNT_CREATE_THREAD);

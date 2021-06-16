@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 06:06:08 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/12 19:42:19 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:19:43 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,4 @@ void	sleeps(t_philo *philo);
 void	throw_forks(t_philo *philo, pthread_mutex_t *forks);
 void	think(t_philo *philo);
 void	clear_state( t_state *state, t_philo *philos, pthread_t *threads);
-void	*die_and_exit(t_philo *philo, void *val);
 #endif

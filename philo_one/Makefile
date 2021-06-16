@@ -6,7 +6,7 @@
 #    By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 16:13:15 by hmellahi          #+#    #+#              #
-#    Updated: 2021/06/12 18:47:10 by hmellahi         ###   ########.fr        #
+#    Updated: 2021/06/16 16:24:46 by hmellahi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,4 +32,4 @@ re: fclean all
 
 run:
 	$(CLANG) $(FLAGS) ${SRC} -o $(NAME)
-	./${NAME} 4  410 200 200
+	./${NAME} 4  0 200 200

@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/06/12 20:05:26 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:19:35 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,6 @@ int	print_err(int msg_index)
 	printf("%s\n", messages[msg_index]);
 	clear_state(NULL, NULL, NULL);
 	return (-1);
-}
-
-void	*die_and_exit(t_philo *philo, void *val)
-{
-	print_msg(PHILO_DIES, philo);
-	(void)val;
-//
-	// return (val);
-	// pthread_detach(threads);
-	exit(0);
 }
 
 void	print_msg(int msg_index, t_philo *philo)
