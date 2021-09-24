@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 23:41:44 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/12 18:33:07 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/09/24 19:42:31 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	init(int ac, char **av, t_state *state, t_philo **philos)
 		pthread_mutex_init(&state->forks[i], NULL);
 	*philos = malloc(sizeof(t_philo) * state->count);
 	i = -1;
+	state->start_time = get_time();
 	while (++i < state->count)
 	{
 		(*philos)[i].state = state;

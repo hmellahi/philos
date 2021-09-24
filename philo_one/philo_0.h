@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 06:06:08 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/16 17:19:43 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/09/24 19:48:44 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_philo
 	t_ul	last_time_eat;
 }				t_philo;
 
-void	print_msg(int msg_index, t_philo *philo);
+int		print_msg(int msg_index, t_philo *philo);
 int		print_err(int msg_index);
 void	init(int ac, char *av[], t_state *state, t_philo **philos);
 void	eat(t_philo *philo);

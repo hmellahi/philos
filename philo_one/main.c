@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 19:01:10 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/06/16 17:19:57 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/09/24 19:50:48 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,9 @@ int	checker(t_philo *philos)
 		{
 			if (philos[i].status != EATING && (get_time()
 					- philos[i].last_time_eat) >= state->die_time)
-			{
-				print_msg(PHILO_DIES, &philos[i]);
-				return (-1);
-			}
-			if (philos[i].eat_count >= state->n_must_eat)
+				return (print_msg(PHILO_DIES, &philos[i]));
+			if (state->n_must_eat > 0 && philos[i].eat_count
+				>= state->n_must_eat)
 				full++;
 		}
 		if (full == state->count)
@@ -109,7 +107,6 @@ int	main(int ac, char *av[])
 	t_philo		*philos;
 	pthread_t	*threads;
 
-	state.start_time = get_time();
 	if (check_args(ac, av) == -1)
 		return (-1);
 	init(ac, av, &state, &philos);
