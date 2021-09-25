@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 19:01:10 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/09/24 19:50:48 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/09/25 19:35:33 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	clear_state( t_state	*state, t_philo *philos, pthread_t *threads)
 	int	i;
 	int	n;
 
+	if (!state)
+		return ;
 	i = -1;
 	n = state->count;
 	pthread_mutex_destroy(&state->print_mutex);
