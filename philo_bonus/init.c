@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 02:59:43 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/12 19:43:42 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/09/30 15:01:16 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ int	spawn_proc(t_philo philo)
 
 	pid = fork();
 	if (pid == -1)
-		return (pid);
+		return (print_err(COULDNT_CREATE_PROCESS));
 	if (pid == 0)
 	{
-		if (pthread_create(&threads[0], NULL, &routine, &philo) != 0)
-			print_err(COULDNT_CREATE_THREAD);
-		if (pthread_create(&threads[1], NULL, &checker, &philo) != 0)
-			print_err(COULDNT_CREATE_THREAD);
+		if (pthread_create(&threads[0], NULL, &routine, &philo))
+			return (print_err(COULDNT_CREATE_THREAD));
+		if (pthread_create(&threads[1], NULL, &checker, &philo))
+			return (print_err(COULDNT_CREATE_THREAD));
 		i = -1;
 		while (++i < 2)
 			if (pthread_join(threads[i], NULL))
-				print_err(COULDNT_CREATE_THREAD);
+				return (print_err(COULDNT_JOIN_THREAD));
 	}
 	return (pid);
 }
@@ -47,7 +47,7 @@ int	init_processes(t_state *state, t_philo *philos)
 	{
 		philos[i].pid = spawn_proc(philos[i]);
 		if (philos[i].pid == -1)
-			return (print_err(COULDNT_CREATE_PROCESS));
+			return (-1);
 	}
 	j = -1;
 	while (++j < state->count)

@@ -12,7 +12,7 @@
 
 CLANG = clang
 
-FLAGS = -lpthread -Wall -Werror -Wextra #-g #-fsanitize=address #-Wall -Werror -Wextra
+FLAGS = -lpthread -Wall -Werror -Wextra -g -fsanitize=address #-Wall -Werror -Wextra
 
 NAME = philo
 

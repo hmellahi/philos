@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 06:04:57 by hamza             #+#    #+#             */
-/*   Updated: 2021/06/12 19:43:42 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/09/30 17:42:40 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,12 @@ void	ft_usleep(t_ul time)
 	t_ul	start;
 
 	start = get_time();
-	usleep(time - 20000);
-	while ((get_time() - start) < time)
+	// printf("%lu\n", time);
+	usleep(time - 10000);
+	// t_ul a = get_time() / 1000;
+	t_ul b = time / 1000;
+	t_ul c = start / 1000;
+	while ((get_time() / 1000 - b) < c)
 		;
 }
 

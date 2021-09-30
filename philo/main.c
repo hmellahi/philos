@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 19:01:10 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/09/25 19:35:33 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/09/30 15:43:35 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	checker(t_philo *philos)
 		while (++i < state->count)
 		{
 			if (philos[i].status != EATING && (get_time()
-					- philos[i].last_time_eat) >= state->die_time)
+					- philos[i].last_time_eat) > state->die_time)
 				return (print_msg(PHILO_DIES, &philos[i]));
 			if (state->n_must_eat > 0 && philos[i].eat_count
 				>= state->n_must_eat)
@@ -91,7 +91,10 @@ pthread_t	*init_threads(t_state *state, t_philo *philos)
 	while (++i < state->count)
 	{
 		if (pthread_create(&threads[i], NULL, &routine, &philos[i]) != 0)
+		{
 			print_err(COULDNT_CREATE_THREAD);
+			return (threads);
+		}
 		usleep(100);
 	}
 	i = -1;
@@ -99,7 +102,7 @@ pthread_t	*init_threads(t_state *state, t_philo *philos)
 		return (threads);
 	while (++i < n)
 		if (pthread_join(threads[i], NULL))
-			print_err(COULDNT_CREATE_THREAD);
+			print_err(COULDNT_JOIN_THREAD);
 	return (threads);
 }
 

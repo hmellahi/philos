@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 17:17:51 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/09/25 19:37:25 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/09/30 16:02:53 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,5 @@ int	main(int ac, char *av[])
 	state.waiter = sem_open("waiter", O_CREAT, 0644, 1);
 	init(ac, av, &state, &philos);
 	clear_state(&state, philos);
-	system("leaks philo");
 	return (0);
 }
