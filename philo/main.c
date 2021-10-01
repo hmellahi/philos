@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 19:01:10 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/10/01 21:23:41 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/01 21:39:52 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,11 +120,10 @@ int	main(int ac, char *av[])
 	init(ac, av, &state, &philos);
 	if (!state.n_must_eat)
 	{
-		clear_state(&state, NULL, NULL);
+		clear_state(&state, philos, NULL);
 		return (0);
 	}
 	threads = init_threads(&state, philos);
 	clear_state(&state, philos, threads);
-	system("leaks philo");
 	return (0);
 }
