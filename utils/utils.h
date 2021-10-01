@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 18:37:19 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/09/30 14:20:56 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/01 18:45:26 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # define ON_TABLE 1
 # define USED 0
 # define DIE_STATUS_CODE 12
-typedef char*			t_string;
-typedef unsigned long	t_ul;
+typedef char*				t_string;
+typedef unsigned long long	t_ul;
 
 enum	e_messages
 {
@@ -50,5 +50,6 @@ void	ft_usleep(t_ul time);
 int		check_args(int ac, t_string	*av);
 t_ul	get_time(void);
 int		print_err(int msg_index);
+t_ul	get_time(void);
 
 #endif

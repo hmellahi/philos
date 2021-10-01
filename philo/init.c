@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 23:41:44 by hamza             #+#    #+#             */
-/*   Updated: 2021/09/24 19:42:31 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/01 18:45:26 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	init_state(t_state *state, t_string *av, int ac)
 {
 	state->count = ft_atoi(av[1]);
-	state->die_time = ft_atoi(av[2]) * 1000;
-	state->eat_time = ft_atoi(av[3]) * 1000;
-	state->sleep_time = ft_atoi(av[4]) * 1000;
+	state->die_time = ft_atoi(av[2]);
+	state->eat_time = ft_atoi(av[3]);
+	state->sleep_time = ft_atoi(av[4]);
 	if (ac == 6)
 		state->n_must_eat = ft_atoi(av[5]);
 	else

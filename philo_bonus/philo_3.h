@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 02:06:49 by hamza             #+#    #+#             */
-/*   Updated: 2021/09/24 19:48:49 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/01 19:53:28 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,6 @@ void			init(int ac, char *av[], t_state *state, t_philo **philos);
 void			*checker(void *val);
 void			*routine(void *val);
 int				is_number(t_string str);
+t_ul			get_time(void);
+void			clear_state(t_state	*state, t_philo *philos);
 #endif

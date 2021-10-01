@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/31 06:04:57 by hamza             #+#    #+#             */
-/*   Updated: 2021/09/30 17:42:40 by hmellahi         ###   ########.fr       */
+/*   Created: 2021/10/01 19:36:06 by hmellahi          #+#    #+#             */
+/*   Updated: 2021/10/01 19:36:14 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,17 @@ int	check_args(int ac, t_string	*av)
 	while (++i < ac)
 		if (!is_number(av[i]) || ft_atoi(av[i]) < 0)
 			return (print_err(NOT_VALID_ARGS));
+	if (ft_atoi(av[1]) == 0 || ft_atoi(av[1]) > 200)
+		return (print_err(NOT_VALID_ARGS));
 	return (0);
+}
+
+t_ul	get_time(void)
+{
+	struct timeval	current_time;
+
+	gettimeofday(&current_time, NULL);
+	return ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
 }
 
 void	ft_usleep(t_ul time)
@@ -41,12 +51,8 @@ void	ft_usleep(t_ul time)
 	t_ul	start;
 
 	start = get_time();
-	// printf("%lu\n", time);
-	usleep(time - 10000);
-	// t_ul a = get_time() / 1000;
-	t_ul b = time / 1000;
-	t_ul c = start / 1000;
-	while ((get_time() / 1000 - b) < c)
+	usleep((time - 10) * 1000);
+	while ((get_time() - time) < start)
 		;
 }
 
@@ -76,14 +82,4 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (num * neg);
-}
-
-t_ul	get_time(void)
-{
-	t_ul			time_in_ms;
-	struct timeval	current_time;
-
-	gettimeofday(&current_time, NULL);
-	time_in_ms = current_time.tv_usec + current_time.tv_sec * 1000000;
-	return (time_in_ms);
 }

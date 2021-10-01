@@ -6,13 +6,13 @@
 #    By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 16:13:15 by hmellahi          #+#    #+#              #
-#    Updated: 2021/09/30 15:51:01 by hmellahi         ###   ########.fr        #
+#    Updated: 2021/10/01 19:45:06 by hmellahi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CLANG = clang
 
-FLAGS = -lpthread -Wall -Werror -Wextra -Ofast #-g #-fsanitize=address #-Wall -Werror -Wextra
+FLAGS = -lpthread -Wall -Werror -Wextra #-g #-fsanitize=address #-Wall -Werror -Wextra
 
 NAME = philo_bonus
 

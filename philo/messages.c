@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/09/25 19:34:02 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/01 20:24:05 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,23 @@ int	print_err(int msg_index)
 
 int	print_msg(int msg_index, t_philo *philo)
 {
-	unsigned long	time_in_ms;
+	t_ul	time_in_ms;
 
-	time_in_ms = get_time() / 1000;
+	time_in_ms = get_time() - philo->state->start_time;
 	pthread_mutex_lock(&philo->state->print_mutex);
 	if (msg_index == PHILO_TAKES_FORK)
-		printf("%lu %d has taken a fork\n", time_in_ms, philo->index + 1);
+		printf("%llu |%d| has taken a fork\n", time_in_ms, philo->index + 1);
 	else if (msg_index == PHILO_EATING)
-		printf("%lu %d is eating\n", time_in_ms, philo->index + 1);
+		printf("%llu |%d| is eating\n", time_in_ms, philo->index + 1);
 	else if (msg_index == PHILO_DIES)
 	{
-		printf("%lu %d died\n", time_in_ms, philo->index + 1);
+		printf("%llu |%d| died\n", time_in_ms, philo->index + 1);
 		return (-1);
 	}
 	else if (msg_index == PHILO_THINKS)
-		printf("%lu %d is thinking\n", time_in_ms, philo->index + 1);
+		printf("%llu |%d| is thinking\n", time_in_ms, philo->index + 1);
 	else if (msg_index == PHILO_SLEEPS)
-		printf("%lu %d is sleeping\n", time_in_ms, philo->index + 1);
+		printf("%llu |%d|is sleeping\n", time_in_ms, philo->index + 1);
 	pthread_mutex_unlock(&philo->state->print_mutex);
 	return (0);
 }

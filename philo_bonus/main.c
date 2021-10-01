@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 17:17:51 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/09/30 16:02:53 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/01 20:16:58 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void	*checker(void *val)
 	while (1)
 	{
 		if (philo->status != EATING && get_time()
-			>= (philo->state->die_time + philo->last_time_eat))
+			> (philo->state->die_time + philo->last_time_eat))
 			print_msg(PHILO_DIES, philo);
 		if (n_must_eat > 0 && philo->eat_count >= n_must_eat)
 			exit(0);
-		usleep(10);
+		usleep(100);
 	}
 	return (val);
 }
@@ -56,6 +56,7 @@ void	clear_state(t_state	*state, t_philo *philos)
 	free(philos);
 	sem_close(state->forks);
 	sem_close(state->print_sem);
+	sem_close(state->waiter);
 }
 
 int	main(int ac, char *av[])
@@ -65,7 +66,6 @@ int	main(int ac, char *av[])
 
 	if (check_args(ac, av) == -1)
 		return (-1);
-	state.start = get_time();
 	sem_unlink("print");
 	state.print_sem = sem_open("print", O_CREAT, 0644, 1);
 	sem_unlink("waiter");

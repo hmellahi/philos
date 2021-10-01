@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 02:59:43 by hamza             #+#    #+#             */
-/*   Updated: 2021/09/30 15:01:16 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/01 20:17:17 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ int	init_processes(t_state *state, t_philo *philos)
 void	init_state(t_state *state, t_string *av, int ac)
 {
 	state->count = ft_atoi(av[1]);
-	state->die_time = ft_atoi(av[2]) * 1000;
-	state->eat_time = ft_atoi(av[3]) * 1000;
-	state->sleep_time = ft_atoi(av[4]) * 1000;
+	state->die_time = ft_atoi(av[2]);
+	state->eat_time = ft_atoi(av[3]);
+	state->sleep_time = ft_atoi(av[4]);
 	state->start = get_time();
 	if (ac == 6)
 		state->n_must_eat = ft_atoi(av[5]);
@@ -84,8 +84,14 @@ void	init(int ac, char **av, t_state *state, t_philo **philos)
 	int	i;
 
 	init_state(state, av, ac);
+	if (!state->n_must_eat)
+	{
+		clear_state(state, NULL);
+		exit(0);
+	}
 	*philos = malloc(sizeof(t_philo) * state->count);
 	i = -1;
+	state->start = get_time();
 	while (++i < state->count)
 	{
 		(*philos)[i].state = state;
