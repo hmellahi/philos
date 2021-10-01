@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 06:06:08 by hamza             #+#    #+#             */
-/*   Updated: 2021/10/01 16:42:38 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/01 20:53:16 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ typedef struct s_state
 {
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print_mutex;
-	pthread_mutex_t	waiter;
 	int				count;
 	t_ul			die_time;
 	t_ul			eat_time;
@@ -30,13 +29,14 @@ typedef struct s_state
 
 typedef struct s_philo
 {
-	int		status;
-	char	l_fork;
-	char	r_fork;
-	int		index;
-	int		eat_count;
-	t_state	*state;
-	t_ul	last_time_eat;
+	int				status;
+	char			l_fork;
+	char			r_fork;
+	int				index;
+	int				eat_count;
+	t_state			*state;
+	t_ul			last_time_eat;
+	pthread_mutex_t	eat_mutex;
 }				t_philo;
 
 int		print_msg(int msg_index, t_philo *philo);

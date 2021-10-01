@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 19:01:10 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/10/01 20:22:55 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/01 21:23:41 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,18 @@ int	checker(t_philo *philos)
 		i = -1;
 		while (++i < state->count)
 		{
+			pthread_mutex_lock(&philos[i].eat_mutex);
 			if (philos[i].status != EATING && (get_time()
 					- philos[i].last_time_eat) > state->die_time)
 				return (print_msg(PHILO_DIES, &philos[i]));
+			pthread_mutex_unlock(&philos[i].eat_mutex);
 			if (state->n_must_eat > 0 && philos[i].eat_count
 				>= state->n_must_eat)
 				full++;
 		}
 		if (full == state->count)
 			return (0);
-		usleep(100);
+		usleep(200);
 	}
 	return (0);
 }
@@ -74,7 +76,12 @@ void	clear_state( t_state	*state, t_philo *philos, pthread_t *threads)
 	if (state)
 		free(state->forks);
 	if (philos)
+	{
 		free(philos);
+		i = -1;
+		while (++i < n)
+			pthread_mutex_destroy(&philos[i].eat_mutex);
+	}
 	if (threads)
 		free(threads);
 }

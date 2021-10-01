@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 23:41:44 by hamza             #+#    #+#             */
-/*   Updated: 2021/10/01 18:45:26 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/01 20:54:06 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	init(int ac, char **av, t_state *state, t_philo **philos)
 		(*philos)[i].r_fork = -1;
 		(*philos)[i].index = i;
 		(*philos)[i].eat_count = 0;
+		pthread_mutex_init(&(*philos)[i].eat_mutex, NULL);
 		(*philos)[i].last_time_eat = state->start_time;
 	}
 }

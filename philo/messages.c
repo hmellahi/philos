@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/10/01 20:24:05 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/01 21:01:21 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ int	print_msg(int msg_index, t_philo *philo)
 		printf("%llu |%d| is eating\n", time_in_ms, philo->index + 1);
 	else if (msg_index == PHILO_DIES)
 	{
-		printf("%llu |%d| died\n", time_in_ms, philo->index + 1);
+		printf("%llu |%d|died\n", time_in_ms, philo->index + 1);
 		return (-1);
 	}
 	else if (msg_index == PHILO_THINKS)
 		printf("%llu |%d| is thinking\n", time_in_ms, philo->index + 1);
 	else if (msg_index == PHILO_SLEEPS)
-		printf("%llu |%d|is sleeping\n", time_in_ms, philo->index + 1);
+		printf("%llu |%d| is sleeping\n", time_in_ms, philo->index + 1);
 	pthread_mutex_unlock(&philo->state->print_mutex);
 	return (0);
 }

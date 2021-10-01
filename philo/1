@@ -7,12 +7,12 @@
 0 |3| has taken a fork
 0 |3| has taken a fork
 0 |3| is eating
-1 |4| is thinking
-1 |5| is thinking
-1 |5| has taken a fork
-1 |5| has taken a fork
-1 |5| is eating
-1 |6| is thinking
+0 |4| is thinking
+0 |5| is thinking
+0 |5| has taken a fork
+0 |5| has taken a fork
+0 |5| is eating
+0 |6| is thinking
 1 |7| is thinking
 1 |7| has taken a fork
 1 |7| has taken a fork
@@ -27,11 +27,11 @@
 1 |11| has taken a fork
 1 |11| has taken a fork
 1 |11| is eating
-2 |12| is thinking
-2 |13| is thinking
-2 |13| has taken a fork
-2 |13| has taken a fork
-2 |13| is eating
+1 |12| is thinking
+1 |13| is thinking
+1 |13| has taken a fork
+1 |13| has taken a fork
+1 |13| is eating
 2 |14| is thinking
 2 |15| is thinking
 2 |15| has taken a fork
@@ -43,11 +43,11 @@
 2 |17| has taken a fork
 2 |17| is eating
 2 |18| is thinking
-3 |19| is thinking
-3 |19| has taken a fork
-3 |19| has taken a fork
-3 |19| is eating
-3 |20| is thinking
+2 |19| is thinking
+2 |19| has taken a fork
+2 |19| has taken a fork
+2 |19| is eating
+2 |20| is thinking
 3 |21| is thinking
 3 |21| has taken a fork
 3 |21| has taken a fork
@@ -62,7 +62,7 @@
 3 |25| has taken a fork
 3 |25| has taken a fork
 3 |25| is eating
-4 |26| is thinking
+3 |26| is thinking
 4 |27| is thinking
 4 |27| has taken a fork
 4 |27| has taken a fork
@@ -78,11 +78,11 @@
 4 |31| has taken a fork
 4 |31| is eating
 4 |32| is thinking
-5 |33| is thinking
-5 |33| has taken a fork
-5 |33| has taken a fork
-5 |33| is eating
-5 |34| is thinking
+4 |33| is thinking
+4 |33| has taken a fork
+4 |33| has taken a fork
+4 |33| is eating
+4 |34| is thinking
 5 |35| is thinking
 5 |35| has taken a fork
 5 |35| has taken a fork
@@ -152,7 +152,7 @@
 8 |61| has taken a fork
 8 |61| has taken a fork
 8 |61| is eating
-9 |62| is thinking
+8 |62| is thinking
 9 |63| is thinking
 9 |63| has taken a fork
 9 |63| has taken a fork
@@ -262,7 +262,7 @@
 14 |105| has taken a fork
 14 |105| has taken a fork
 14 |105| is eating
-14 |106| is thinking
+15 |106| is thinking
 15 |107| is thinking
 15 |107| has taken a fork
 15 |107| has taken a fork
@@ -333,10 +333,10 @@
 18 |133| has taken a fork
 18 |133| is eating
 18 |134| is thinking
-18 |135| is thinking
-18 |135| has taken a fork
-18 |135| has taken a fork
-18 |135| is eating
+19 |135| is thinking
+19 |135| has taken a fork
+19 |135| has taken a fork
+19 |135| is eating
 19 |136| is thinking
 19 |137| is thinking
 19 |137| has taken a fork
@@ -352,7 +352,7 @@
 19 |141| has taken a fork
 19 |141| has taken a fork
 19 |141| is eating
-19 |142| is thinking
+20 |142| is thinking
 20 |143| is thinking
 20 |143| has taken a fork
 20 |143| has taken a fork
@@ -368,10 +368,10 @@
 20 |147| has taken a fork
 20 |147| is eating
 20 |148| is thinking
-20 |149| is thinking
-20 |149| has taken a fork
-20 |149| has taken a fork
-20 |149| is eating
+21 |149| is thinking
+21 |149| has taken a fork
+21 |149| has taken a fork
+21 |149| is eating
 21 |150| is thinking
 21 |151| is thinking
 21 |151| has taken a fork
@@ -387,11 +387,11 @@
 21 |155| has taken a fork
 21 |155| has taken a fork
 21 |155| is eating
-21 |156| is thinking
-21 |157| is thinking
-21 |157| has taken a fork
-21 |157| has taken a fork
-21 |157| is eating
+22 |156| is thinking
+22 |157| is thinking
+22 |157| has taken a fork
+22 |157| has taken a fork
+22 |157| is eating
 22 |158| is thinking
 22 |159| is thinking
 22 |159| has taken a fork
@@ -403,11 +403,11 @@
 22 |161| has taken a fork
 22 |161| is eating
 22 |162| is thinking
-22 |163| is thinking
-22 |163| has taken a fork
-22 |163| has taken a fork
-22 |163| is eating
-22 |164| is thinking
+23 |163| is thinking
+23 |163| has taken a fork
+23 |163| has taken a fork
+23 |163| is eating
+23 |164| is thinking
 23 |165| is thinking
 23 |165| has taken a fork
 23 |165| has taken a fork
@@ -422,11 +422,11 @@
 23 |169| has taken a fork
 23 |169| has taken a fork
 23 |169| is eating
-23 |170| is thinking
-23 |171| is thinking
-23 |171| has taken a fork
-23 |171| has taken a fork
-23 |171| is eating
+24 |170| is thinking
+24 |171| is thinking
+24 |171| has taken a fork
+24 |171| has taken a fork
+24 |171| is eating
 24 |172| is thinking
 24 |173| is thinking
 24 |173| has taken a fork
@@ -442,11 +442,11 @@
 24 |177| has taken a fork
 24 |177| has taken a fork
 24 |177| is eating
-24 |178| is thinking
-24 |179| is thinking
-24 |179| has taken a fork
-24 |179| has taken a fork
-24 |179| is eating
+25 |178| is thinking
+25 |179| is thinking
+25 |179| has taken a fork
+25 |179| has taken a fork
+25 |179| is eating
 25 |180| is thinking
 25 |181| is thinking
 25 |181| has taken a fork
@@ -458,11 +458,11 @@
 25 |183| has taken a fork
 25 |183| is eating
 25 |184| is thinking
-25 |185| is thinking
-25 |185| has taken a fork
-25 |185| has taken a fork
-25 |185| is eating
-25 |186| is thinking
+26 |185| is thinking
+26 |185| has taken a fork
+26 |185| has taken a fork
+26 |185| is eating
+26 |186| is thinking
 26 |187| is thinking
 26 |187| has taken a fork
 26 |187| has taken a fork
@@ -477,11 +477,11 @@
 26 |191| has taken a fork
 26 |191| has taken a fork
 26 |191| is eating
-26 |192| is thinking
-26 |193| is thinking
-26 |193| has taken a fork
-26 |193| has taken a fork
-26 |193| is eating
+27 |192| is thinking
+27 |193| is thinking
+27 |193| has taken a fork
+27 |193| has taken a fork
+27 |193| is eating
 27 |194| is thinking
 27 |195| is thinking
 27 |195| has taken a fork
@@ -495,793 +495,474 @@
 27 |198| is thinking
 27 |199| is thinking
 27 |199| has taken a fork
-200 |3|is sleeping
-201 |9|is sleeping
-201 |7|is sleeping
-202 |15|is sleeping
-203 |21|is sleeping
-204 |29|is sleeping
-204 |31|is sleeping
-205 |35|is sleeping
-205 |33|is sleeping
-205 |39|is sleeping
-206 |41|is sleeping
-206 |43|is sleeping
-206 |45|is sleeping
-206 |47|is sleeping
-207 |53|is sleeping
-207 |49|is sleeping
-207 |51|is sleeping
-208 |55|is sleeping
-208 |61|is sleeping
-208 |57|is sleeping
-208 |59|is sleeping
-208 |199| has taken a fork
-208 |199| is eating
-208 |4| has taken a fork
-208 |4| has taken a fork
-208 |4| is eating
-208 |2| has taken a fork
-208 |2| has taken a fork
-208 |2| is eating
-200 |1|is sleeping
-209 |69|is sleeping
-209 |65|is sleeping
-209 |63|is sleeping
-209 |67|is sleeping
-209 |12| has taken a fork
-209 |6| has taken a fork
-209 |6| has taken a fork
-209 |12| has taken a fork
-209 |8| has taken a fork
-209 |8| has taken a fork
-201 |11|is sleeping
-209 |8| is eating
-209 |16| has taken a fork
-209 |16| has taken a fork
-209 |14| has taken a fork
-209 |14| has taken a fork
-209 |14| is eating
-210 |73|is sleeping
-211 |77|is sleeping
-211 |81|is sleeping
-211 |83|is sleeping
-211 |20| has taken a fork
-211 |26| has taken a fork
-211 |26| has taken a fork
-211 |26| is eating
-211 |20| has taken a fork
-211 |20| is eating
-211 |24| has taken a fork
-211 |24| has taken a fork
-211 |24| is eating
-212 |91|is sleeping
-212 |87|is sleeping
-212 |85|is sleeping
-202 |13|is sleeping
-212 |89|is sleeping
-212 |30| has taken a fork
-212 |30| has taken a fork
-212 |30| is eating
+27 |199| has taken a fork
+27 |199| is eating
+28 |200| is thinking
+200 |3| is sleeping
+201 |9| is sleeping
+202 |15| is sleeping
+202 |19| is sleeping
+202 |17| is sleeping
+203 |23| is sleeping
+203 |21| is sleeping
+203 |25| is sleeping
+204 |31| is sleeping
+204 |29| is sleeping
+204 |33| is sleeping
+204 |27| is sleeping
+204 |4| has taken a fork
+204 |4| has taken a fork
+204 |4| is eating
+204 |6| has taken a fork
+204 |6| has taken a fork
+204 |6| is eating
+205 |35| is sleeping
+205 |37| is sleeping
+205 |39| is sleeping
+205 |2| has taken a fork
+205 |2| has taken a fork
+205 |2| is eating
+206 |47| is sleeping
+206 |45| is sleeping
+206 |41| is sleeping
+206 |43| is sleeping
+200 |5| is sleeping
+206 |12| has taken a fork
+206 |12| has taken a fork
+206 |14| has taken a fork
+206 |14| has taken a fork
+206 |12| is eating
+206 |14| is eating
+207 |49| is sleeping
+207 |53| is sleeping
+207 |51| is sleeping
+207 |16| has taken a fork
+207 |16| has taken a fork
+207 |16| is eating
+208 |61| is sleeping
+208 |59| is sleeping
+208 |55| is sleeping
+208 |20| has taken a fork
+208 |20| has taken a fork
+208 |20| is eating
+201 |11| is sleeping
+209 |65| is sleeping
+209 |69| is sleeping
+209 |67| is sleeping
+201 |13| is sleeping
+210 |71| is sleeping
+210 |75| is sleeping
+210 |73| is sleeping
+210 |18| has taken a fork
+210 |18| has taken a fork
+210 |18| is eating
+201 |7| is sleeping
+210 |24| has taken a fork
+210 |24| has taken a fork
+210 |24| is eating
+210 |26| has taken a fork
+210 |26| has taken a fork
+210 |26| is eating
+210 |22| has taken a fork
+210 |22| has taken a fork
+210 |22| is eating
+211 |77| is sleeping
+211 |83| is sleeping
+211 |81| is sleeping
+211 |79| is sleeping
+212 |87| is sleeping
+212 |85| is sleeping
+212 |89| is sleeping
 212 |32| has taken a fork
 212 |32| has taken a fork
 212 |32| is eating
-203 |19|is sleeping
-203 |23|is sleeping
-212 |36| has taken a fork
-212 |36| has taken a fork
-212 |36| is eating
-212 |38| has taken a fork
-212 |38| has taken a fork
-212 |38| is eating
-213 |95|is sleeping
-213 |97|is sleeping
-213 |93|is sleeping
-213 |34| has taken a fork
-213 |34| has taken a fork
-213 |34| is eating
-203 |25|is sleeping
-214 |99|is sleeping
-214 |103|is sleeping
-204 |27|is sleeping
-214 |105|is sleeping
-214 |101|is sleeping
-214 |40| has taken a fork
+212 |30| has taken a fork
+212 |30| has taken a fork
+212 |30| is eating
+212 |34| has taken a fork
+212 |34| has taken a fork
+212 |34| is eating
+212 |28| has taken a fork
+212 |28| has taken a fork
+212 |28| is eating
+213 |93| is sleeping
+213 |95| is sleeping
+213 |97| is sleeping
+213 |36| has taken a fork
+213 |36| has taken a fork
+213 |36| is eating
+213 |38| has taken a fork
+213 |38| has taken a fork
+213 |38| is eating
+213 |40| has taken a fork
+213 |40| has taken a fork
+213 |40| is eating
+214 |99| is sleeping
+214 |105| is sleeping
+214 |101| is sleeping
+214 |103| is sleeping
+214 |48| has taken a fork
+214 |48| has taken a fork
+214 |48| is eating
 214 |44| has taken a fork
-214 |40| has taken a fork
-214 |40| is eating
 214 |44| has taken a fork
 214 |44| is eating
 214 |46| has taken a fork
 214 |46| has taken a fork
 214 |46| is eating
-214 |48| has taken a fork
-214 |48| has taken a fork
-214 |48| is eating
-214 |54| has taken a fork
-214 |54| has taken a fork
-214 |54| is eating
+214 |42| has taken a fork
+214 |42| has taken a fork
+214 |42| is eating
+206 |10| has taken a fork
+214 |10| has taken a fork
+214 |10| is eating
+206 |8| has taken a fork
+214 |8| has taken a fork
+214 |8| is eating
+200 |1| is sleeping
 214 |50| has taken a fork
 214 |50| has taken a fork
 214 |50| is eating
 214 |52| has taken a fork
 214 |52| has taken a fork
 214 |52| is eating
-215 |113|is sleeping
-215 |111|is sleeping
-216 |119|is sleeping
-216 |117|is sleeping
-216 |115|is sleeping
-216 |56| has taken a fork
-216 |56| has taken a fork
-216 |56| is eating
-216 |62| has taken a fork
-216 |62| has taken a fork
-216 |62| is eating
-216 |60| has taken a fork
-216 |60| has taken a fork
-216 |60| is eating
-216 |58| has taken a fork
-216 |58| has taken a fork
-216 |58| is eating
-217 |123|is sleeping
-217 |127|is sleeping
-217 |125|is sleeping
-217 |70| has taken a fork
-217 |70| has taken a fork
-217 |70| is eating
-217 |64| has taken a fork
-217 |64| has taken a fork
-217 |64| is eating
-217 |68| has taken a fork
-217 |68| has taken a fork
-217 |68| is eating
-217 |121|is sleeping
-218 |133|is sleeping
-218 |131|is sleeping
-218 |135|is sleeping
-218 |66| has taken a fork
-218 |66| has taken a fork
-218 |66| is eating
-209 |6| is eating
-209 |18| has taken a fork
-218 |18| has taken a fork
-218 |107|is sleeping
-218 |18| is eating
-218 |109|is sleeping
-218 |74| has taken a fork
-218 |74| has taken a fork
-218 |74| is eating
-218 |76| has taken a fork
-218 |76| has taken a fork
-218 |76| is eating
-210 |75|is sleeping
-218 |84| has taken a fork
-218 |84| has taken a fork
-218 |84| is eating
-218 |78| has taken a fork
-218 |78| has taken a fork
-218 |78| is eating
-218 |80| has taken a fork
-218 |80| has taken a fork
-218 |80| is eating
-218 |82| has taken a fork
-218 |82| has taken a fork
-218 |82| is eating
-219 |141|is sleeping
-219 |139|is sleeping
-219 |137|is sleeping
-220 |149|is sleeping
-220 |147|is sleeping
-220 |143|is sleeping
-210 |71|is sleeping
-220 |145|is sleeping
-211 |79|is sleeping
-220 |86| has taken a fork
-220 |90| has taken a fork
-220 |90| has taken a fork
-220 |86| has taken a fork
-220 |90| is eating
-220 |86| is eating
-220 |92| has taken a fork
-220 |92| has taken a fork
-220 |92| is eating
-211 |22| has taken a fork
-220 |22| has taken a fork
-220 |22| is eating
-221 |151|is sleeping
-221 |155|is sleeping
-221 |157|is sleeping
-221 |153|is sleeping
-221 |88| has taken a fork
-221 |96| has taken a fork
-212 |28| has taken a fork
-221 |28| has taken a fork
-221 |98| has taken a fork
-221 |28| is eating
-221 |102| has taken a fork
-221 |106| has taken a fork
-221 |102| has taken a fork
-221 |102| is eating
-221 |104| has taken a fork
-221 |104| has taken a fork
-221 |106| has taken a fork
-221 |104| is eating
-221 |106| is eating
-205 |37|is sleeping
-214 |42| has taken a fork
-221 |114| has taken a fork
-221 |42| has taken a fork
-221 |42| is eating
-221 |114| has taken a fork
-221 |114| is eating
-221 |120| has taken a fork
-221 |120| has taken a fork
-221 |120| is eating
-221 |118| has taken a fork
-221 |122| has taken a fork
-221 |124| has taken a fork
-221 |124| has taken a fork
-221 |126| has taken a fork
-221 |124| is eating
-221 |128| has taken a fork
-221 |128| has taken a fork
-221 |128| is eating
-221 |126| has taken a fork
-221 |126| is eating
-222 |159|is sleeping
-222 |161|is sleeping
-222 |163|is sleeping
-223 |169|is sleeping
-223 |171|is sleeping
-223 |167|is sleeping
-223 |165|is sleeping
-224 |173|is sleeping
-224 |179|is sleeping
-224 |175|is sleeping
-224 |177|is sleeping
-225 |181|is sleeping
-225 |183|is sleeping
-225 |185|is sleeping
-226 |191|is sleeping
-226 |193|is sleeping
-226 |187|is sleeping
-226 |134| has taken a fork
-226 |134| has taken a fork
-226 |134| is eating
-226 |130| has taken a fork
-226 |132| has taken a fork
-226 |132| has taken a fork
-226 |132| is eating
-226 |130| has taken a fork
-226 |130| is eating
-226 |189|is sleeping
-226 |136| has taken a fork
-226 |136| has taken a fork
-226 |136| is eating
-218 |129|is sleeping
-209 |10| has taken a fork
-201 |5|is sleeping
-209 |12| is eating
-209 |16| is eating
-226 |108| has taken a fork
-226 |108| has taken a fork
-226 |108| is eating
-202 |17|is sleeping
-226 |110| has taken a fork
-226 |110| has taken a fork
-226 |110| is eating
-226 |142| has taken a fork
-226 |142| has taken a fork
-226 |142| is eating
-226 |140| has taken a fork
-226 |140| has taken a fork
-226 |140| is eating
-226 |138| has taken a fork
-226 |138| has taken a fork
-226 |138| is eating
-226 |150| has taken a fork
-226 |150| has taken a fork
-226 |150| is eating
-226 |144| has taken a fork
-226 |144| has taken a fork
-226 |144| is eating
-226 |148| has taken a fork
-226 |148| has taken a fork
-226 |148| is eating
-226 |146| has taken a fork
-226 |146| has taken a fork
-226 |146| is eating
-226 |152| has taken a fork
-226 |152| has taken a fork
-226 |152| is eating
-226 |154| has taken a fork
-226 |154| has taken a fork
-226 |154| is eating
-226 |156| has taken a fork
-226 |156| has taken a fork
-226 |156| is eating
-226 |158| has taken a fork
-226 |158| has taken a fork
-226 |158| is eating
-221 |88| has taken a fork
-226 |88| is eating
-221 |94| has taken a fork
-226 |94| has taken a fork
-226 |94| is eating
-221 |96| has taken a fork
-226 |96| is eating
-221 |100| has taken a fork
-226 |100| has taken a fork
-226 |100| is eating
-221 |98| has taken a fork
-226 |98| is eating
-221 |112| has taken a fork
-226 |112| has taken a fork
-226 |112| is eating
-221 |116| has taken a fork
-226 |116| has taken a fork
-226 |116| is eating
-221 |122| has taken a fork
-226 |122| is eating
-226 |160| has taken a fork
-226 |160| has taken a fork
-226 |160| is eating
-226 |164| has taken a fork
-226 |164| has taken a fork
-226 |164| is eating
-226 |170| has taken a fork
-226 |170| has taken a fork
-226 |170| is eating
-226 |172| has taken a fork
-226 |172| has taken a fork
-226 |172| is eating
-226 |166| has taken a fork
-226 |166| has taken a fork
-226 |166| is eating
-226 |168| has taken a fork
-226 |168| has taken a fork
-226 |168| is eating
-226 |174| has taken a fork
-226 |174| has taken a fork
-226 |174| is eating
-226 |176| has taken a fork
-226 |176| has taken a fork
-226 |176| is eating
-226 |180| has taken a fork
-226 |180| has taken a fork
-226 |180| is eating
-226 |178| has taken a fork
-226 |178| has taken a fork
-226 |178| is eating
-226 |182| has taken a fork
-226 |182| has taken a fork
-226 |182| is eating
-226 |184| has taken a fork
-226 |184| has taken a fork
-226 |184| is eating
-226 |186| has taken a fork
-226 |186| has taken a fork
-226 |186| is eating
-226 |192| has taken a fork
-226 |192| has taken a fork
-226 |192| is eating
-226 |194| has taken a fork
-226 |190| has taken a fork
-226 |190| has taken a fork
-226 |190| is eating
-226 |188| has taken a fork
-226 |188| has taken a fork
-226 |188| is eating
-226 |10| has taken a fork
-226 |10| is eating
-218 |72| has taken a fork
-226 |72| has taken a fork
-226 |72| is eating
-221 |118| has taken a fork
-226 |118| is eating
-226 |162| has taken a fork
-226 |162| has taken a fork
-226 |162| is eating
-227 |197|is sleeping
+215 |109| is sleeping
+215 |113| is sleeping
+215 |107| is sleeping
+215 |111| is sleeping
+215 |54| has taken a fork
+215 |54| has taken a fork
+215 |54| is eating
+215 |62| has taken a fork
+215 |62| has taken a fork
+215 |62| is eating
+215 |58| has taken a fork
+215 |58| has taken a fork
+215 |58| is eating
+215 |56| has taken a fork
+215 |56| has taken a fork
+215 |56| is eating
+215 |60| has taken a fork
+215 |60| has taken a fork
+215 |60| is eating
+208 |57| is sleeping
+215 |66| has taken a fork
+215 |66| has taken a fork
+215 |66| is eating
+215 |70| has taken a fork
+215 |70| has taken a fork
+215 |70| is eating
+215 |68| has taken a fork
+215 |68| has taken a fork
+215 |68| is eating
+209 |63| is sleeping
+215 |72| has taken a fork
+215 |72| has taken a fork
+215 |76| has taken a fork
+215 |76| has taken a fork
+215 |76| is eating
+215 |74| has taken a fork
+215 |74| has taken a fork
+215 |74| is eating
+215 |80| has taken a fork
+215 |80| has taken a fork
+215 |80| is eating
+215 |78| has taken a fork
+215 |78| has taken a fork
+215 |78| is eating
+215 |84| has taken a fork
+215 |84| has taken a fork
+215 |84| is eating
+215 |82| has taken a fork
+215 |82| has taken a fork
+215 |82| is eating
+216 |115| is sleeping
+216 |119| is sleeping
+216 |117| is sleeping
+217 |127| is sleeping
+217 |125| is sleeping
+217 |121| is sleeping
+217 |123| is sleeping
+218 |131| is sleeping
+218 |133| is sleeping
+218 |129| is sleeping
+218 |88| has taken a fork
+218 |88| has taken a fork
+218 |88| is eating
+218 |92| has taken a fork
+218 |92| has taken a fork
+218 |92| is eating
+218 |86| has taken a fork
+218 |86| has taken a fork
+218 |86| is eating
+218 |90| has taken a fork
+218 |90| has taken a fork
+218 |90| is eating
+212 |91| is sleeping
+218 |94| has taken a fork
+218 |94| has taken a fork
+218 |94| is eating
+218 |96| has taken a fork
+218 |96| has taken a fork
+218 |96| is eating
+218 |98| has taken a fork
+218 |98| has taken a fork
+218 |98| is eating
+218 |100| has taken a fork
+218 |100| has taken a fork
+218 |100| is eating
+218 |102| has taken a fork
+218 |102| has taken a fork
+218 |102| is eating
+218 |106| has taken a fork
+218 |106| has taken a fork
+218 |106| is eating
+219 |137| is sleeping
+219 |135| is sleeping
+219 |141| is sleeping
+219 |139| is sleeping
+220 |143| is sleeping
+220 |147| is sleeping
+220 |145| is sleeping
+221 |153| is sleeping
+221 |149| is sleeping
+221 |151| is sleeping
+221 |155| is sleeping
+222 |159| is sleeping
+222 |161| is sleeping
+222 |157| is sleeping
+223 |163| is sleeping
+223 |167| is sleeping
+223 |169| is sleeping
+223 |165| is sleeping
+223 |104| has taken a fork
+223 |104| has taken a fork
+223 |112| has taken a fork
+223 |112| has taken a fork
+223 |114| has taken a fork
+223 |126| has taken a fork
+223 |114| has taken a fork
+223 |126| has taken a fork
+223 |114| is eating
+223 |126| is eating
+223 |124| has taken a fork
+223 |124| has taken a fork
+223 |124| is eating
+223 |132| has taken a fork
+223 |132| has taken a fork
+223 |132| is eating
+224 |171| is sleeping
+224 |175| is sleeping
+224 |177| is sleeping
+224 |173| is sleeping
+225 |181| is sleeping
+225 |179| is sleeping
+225 |183| is sleeping
+226 |185| is sleeping
+226 |191| is sleeping
+226 |189| is sleeping
+226 |187| is sleeping
+227 |199| is sleeping
+227 |195| is sleeping
+227 |193| is sleeping
+227 |138| has taken a fork
+227 |136| has taken a fork
+227 |136| has taken a fork
+227 |140| has taken a fork
+227 |140| has taken a fork
+227 |140| is eating
+227 |138| has taken a fork
+227 |138| is eating
+227 |142| has taken a fork
+227 |144| has taken a fork
+227 |144| has taken a fork
+227 |148| has taken a fork
+227 |146| has taken a fork
+227 |148| has taken a fork
+227 |148| is eating
+227 |144| is eating
+227 |150| has taken a fork
+227 |150| has taken a fork
+227 |150| is eating
+227 |154| has taken a fork
+227 |160| has taken a fork
+227 |162| has taken a fork
+227 |162| has taken a fork
+227 |164| has taken a fork
+227 |162| is eating
+227 |170| has taken a fork
+223 |110| has taken a fork
+227 |110| has taken a fork
+227 |110| is eating
+223 |108| has taken a fork
+223 |116| has taken a fork
+227 |108| has taken a fork
+227 |116| has taken a fork
+227 |108| is eating
+227 |116| is eating
+223 |118| has taken a fork
+223 |120| has taken a fork
+223 |122| has taken a fork
+227 |122| has taken a fork
+223 |134| has taken a fork
+227 |134| has taken a fork
+227 |134| is eating
+227 |122| is eating
+227 |172| has taken a fork
+227 |172| has taken a fork
+227 |172| is eating
+227 |176| has taken a fork
+227 |176| has taken a fork
+227 |176| is eating
+227 |174| has taken a fork
+227 |174| has taken a fork
+227 |174| is eating
+223 |130| has taken a fork
+227 |182| has taken a fork
+227 |182| has taken a fork
+227 |184| has taken a fork
+227 |184| has taken a fork
+227 |184| is eating
+227 |182| is eating
+227 |180| has taken a fork
+227 |180| has taken a fork
+227 |180| is eating
+227 |130| has taken a fork
+227 |130| is eating
+227 |186| has taken a fork
+227 |186| has taken a fork
+227 |186| is eating
+227 |192| has taken a fork
+227 |192| has taken a fork
+227 |192| is eating
+227 |188| has taken a fork
+227 |188| has taken a fork
+227 |190| has taken a fork
+227 |190| has taken a fork
+227 |194| has taken a fork
 227 |194| has taken a fork
 227 |194| is eating
-227 |198| has taken a fork
 227 |196| has taken a fork
 227 |196| has taken a fork
 227 |196| is eating
-227 |195|is sleeping
+227 |198| has taken a fork
+227 |198| has taken a fork
+227 |198| is eating
+227 |197| is sleeping
+227 |190| is eating
+227 |136| is eating
+227 |146| has taken a fork
+227 |146| is eating
+227 |156| has taken a fork
+227 |156| has taken a fork
+227 |156| is eating
+227 |152| has taken a fork
+227 |152| has taken a fork
+227 |160| has taken a fork
+227 |152| is eating
+227 |160| is eating
+227 |158| has taken a fork
+227 |158| has taken a fork
+227 |158| is eating
+227 |164| has taken a fork
+227 |164| is eating
+223 |104| is eating
+227 |168| has taken a fork
+227 |168| has taken a fork
+227 |168| is eating
+215 |64| has taken a fork
+227 |64| has taken a fork
+227 |170| has taken a fork
+227 |170| is eating
+227 |118| has taken a fork
+227 |118| is eating
+223 |128| has taken a fork
+227 |128| has taken a fork
+227 |128| is eating
+227 |188| is eating
+227 |200| has taken a fork
+227 |200| has taken a fork
+227 |200| is eating
+227 |142| has taken a fork
+227 |142| is eating
+227 |166| has taken a fork
+227 |166| has taken a fork
+227 |166| is eating
+223 |112| is eating
+227 |64| is eating
+215 |72| is eating
+227 |120| has taken a fork
+227 |120| is eating
+227 |178| has taken a fork
+227 |178| has taken a fork
+227 |178| is eating
+227 |154| has taken a fork
+227 |154| is eating
 400 |3| is thinking
-401 |7| is thinking
-402 |15| is thinking
-403 |21| is thinking
-404 |31| is thinking
-404 |29| is thinking
-405 |39| is thinking
-406 |47| is thinking
-406 |41| is thinking
-407 |49| is thinking
-408 |55| is thinking
-408 |59| is thinking
-408 |199|is sleeping
-408 |1| is thinking
-408 |1| has taken a fork
-408 |1| has taken a fork
-408 |1| is eating
-408 |2|is sleeping
-408 |35| is thinking
-408 |43| is thinking
-408 |51| is thinking
-409 |67| is thinking
-409 |14|is sleeping
-409 |69| is thinking
-410 |73| is thinking
-411 |77| is thinking
-411 |20|is sleeping
-411 |81| is thinking
-412 |89| is thinking
-412 |85| is thinking
-413 |25| is thinking
-413 |34|is sleeping
-413 |97| is thinking
-413 |83| is thinking
-413 |26|is sleeping
-414 |105| is thinking
-414 |54|is sleeping
-414 |101| is thinking
-414 |44|is sleeping
-414 |87| is thinking
-414 |52|is sleeping
-414 |48|is sleeping
-414 |32|is sleeping
-414 |50|is sleeping
-414 |19| is thinking
-414 |30|is sleeping
-414 |23| is thinking
-416 |115| is thinking
-416 |62|is sleeping
-416 |36|is sleeping
-416 |99| is thinking
-416 |27| is thinking
-416 |27| has taken a fork
-416 |111| is thinking
-416 |38|is sleeping
-416 |91| is thinking
-416 |24|is sleeping
-416 |93| is thinking
-416 |13| is thinking
-416 |103| is thinking
-416 |113| is thinking
-416 |198| has taken a fork
-416 |198| is eating
-416 |3| has taken a fork
-416 |3| has taken a fork
-416 |3| is eating
-408 |61| is thinking
-417 |121| is thinking
-418 |75| is thinking
-418 |18|is sleeping
-418 |135| is thinking
-418 |76|is sleeping
-418 |78|is sleeping
-418 |84|is sleeping
-409 |11| is thinking
-418 |15| has taken a fork
-418 |64|is sleeping
-418 |133| is thinking
-418 |68|is sleeping
-418 |107| is thinking
-418 |6|is sleeping
-418 |74|is sleeping
-409 |53| is thinking
-418 |21| has taken a fork
-409 |33| is thinking
-418 |33| has taken a fork
-418 |33| has taken a fork
-418 |33| is eating
-419 |141| is thinking
-409 |57| is thinking
-419 |57| has taken a fork
-419 |57| has taken a fork
-419 |57| is eating
-409 |63| is thinking
-419 |63| has taken a fork
-419 |63| has taken a fork
-419 |63| is eating
-409 |8|is sleeping
-420 |147| is thinking
-420 |145| is thinking
-420 |90|is sleeping
-420 |79| is thinking
-420 |79| has taken a fork
-420 |79| has taken a fork
-420 |79| is eating
-420 |92|is sleeping
-421 |151| is thinking
-421 |120|is sleeping
-421 |37| is thinking
-421 |37| has taken a fork
-421 |37| has taken a fork
-421 |124|is sleeping
-421 |37| is eating
 401 |9| is thinking
-421 |9| has taken a fork
-421 |106|is sleeping
-421 |28|is sleeping
-421 |126|is sleeping
-409 |65| is thinking
-421 |65| has taken a fork
-421 |65| has taken a fork
-421 |35| has taken a fork
-421 |35| has taken a fork
-421 |35| is eating
-421 |65| is eating
-413 |95| is thinking
-421 |55| has taken a fork
-421 |55| has taken a fork
-421 |55| is eating
-421 |47| has taken a fork
-421 |49| has taken a fork
-421 |49| has taken a fork
-421 |47| has taken a fork
-421 |47| is eating
-421 |71| is thinking
-421 |153| is thinking
-421 |71| has taken a fork
-421 |86|is sleeping
-421 |51| has taken a fork
-421 |51| has taken a fork
-421 |51| is eating
-421 |128|is sleeping
-421 |104|is sleeping
-422 |163| is thinking
-422 |161| is thinking
-422 |31| has taken a fork
-422 |31| has taken a fork
-422 |31| is eating
-422 |143| is thinking
-422 |157| is thinking
-422 |22|is sleeping
-422 |102|is sleeping
-422 |42|is sleeping
-422 |159| is thinking
-423 |167| is thinking
-423 |171| is thinking
-416 |117| is thinking
-416 |56|is sleeping
-423 |39| has taken a fork
-423 |39| has taken a fork
-423 |39| is eating
-424 |177| is thinking
-424 |175| is thinking
-424 |25| has taken a fork
-424 |25| has taken a fork
-424 |25| is eating
-424 |41| has taken a fork
-424 |41| has taken a fork
-424 |41| is eating
-425 |185| is thinking
-416 |40|is sleeping
-416 |119| is thinking
-408 |4|is sleeping
-425 |169| is thinking
-425 |173| is thinking
-425 |181| is thinking
-426 |189| is thinking
-426 |132|is sleeping
-426 |129| is thinking
-426 |5| is thinking
-426 |5| has taken a fork
-426 |17| is thinking
-426 |5| has taken a fork
-426 |5| is eating
-426 |138|is sleeping
-426 |16|is sleeping
-426 |17| has taken a fork
-426 |17| has taken a fork
-426 |17| is eating
-426 |144|is sleeping
-426 |146|is sleeping
-426 |154|is sleeping
-426 |158|is sleeping
-426 |100|is sleeping
-426 |94|is sleeping
-426 |164|is sleeping
-426 |112|is sleeping
-426 |172|is sleeping
-426 |178|is sleeping
-426 |168|is sleeping
-426 |176|is sleeping
-426 |184|is sleeping
-426 |192|is sleeping
-426 |188|is sleeping
-426 |190|is sleeping
-426 |162|is sleeping
-426 |72|is sleeping
-426 |19| has taken a fork
-426 |19| has taken a fork
-426 |77| has taken a fork
-426 |77| has taken a fork
-426 |183| is thinking
-426 |191| is thinking
-426 |191| has taken a fork
-426 |134|is sleeping
-426 |191| has taken a fork
-426 |191| is eating
-426 |81| has taken a fork
-426 |81| has taken a fork
-426 |81| is eating
-426 |83| has taken a fork
-426 |83| has taken a fork
-426 |83| is eating
-426 |130|is sleeping
-426 |136|is sleeping
-426 |12|is sleeping
-426 |108|is sleeping
-426 |110|is sleeping
-426 |142|is sleeping
-426 |140|is sleeping
-426 |150|is sleeping
-426 |61| has taken a fork
-426 |61| has taken a fork
-426 |61| is eating
-426 |148|is sleeping
-426 |152|is sleeping
-426 |156|is sleeping
-426 |59| has taken a fork
-426 |59| has taken a fork
-426 |59| is eating
-426 |88|is sleeping
-426 |96|is sleeping
-426 |98|is sleeping
-426 |116|is sleeping
-426 |160|is sleeping
-426 |170|is sleeping
-426 |166|is sleeping
-426 |174|is sleeping
-426 |180|is sleeping
-426 |182|is sleeping
-426 |67| has taken a fork
-426 |67| has taken a fork
-426 |67| is eating
-426 |186|is sleeping
-426 |10|is sleeping
-426 |118|is sleeping
-418 |80|is sleeping
-418 |82|is sleeping
-426 |69| has taken a fork
-426 |69| has taken a fork
-426 |69| is eating
-427 |197| is thinking
-427 |197| has taken a fork
-427 |194|is sleeping
-427 |195| is thinking
-418 |127| is thinking
-427 |195| has taken a fork
-427 |195| has taken a fork
-427 |196|is sleeping
-427 |195| is eating
-418 |60|is sleeping
-427 |7| has taken a fork
-427 |7| has taken a fork
-427 |75| has taken a fork
-418 |70|is sleeping
-427 |7| is eating
-427 |75| has taken a fork
-427 |75| is eating
-418 |131| is thinking
-427 |131| has taken a fork
-409 |45| is thinking
-427 |131| has taken a fork
-427 |131| is eating
-427 |45| has taken a fork
-418 |66|is sleeping
-427 |45| has taken a fork
-427 |45| is eating
-418 |125| is thinking
-427 |125| has taken a fork
-418 |123| is thinking
-427 |125| has taken a fork
-418 |53| has taken a fork
-418 |109| is thinking
-427 |53| has taken a fork
-427 |109| has taken a fork
-427 |109| has taken a fork
-427 |53| is eating
-427 |109| is eating
-427 |125| is eating
-419 |139| is thinking
-427 |93| has taken a fork
-427 |93| has taken a fork
-427 |121| has taken a fork
-427 |93| is eating
-427 |107| has taken a fork
-427 |107| has taken a fork
-427 |121| has taken a fork
-421 |155| is thinking
-427 |121| is eating
-427 |107| is eating
-427 |155| has taken a fork
-427 |155| has taken a fork
-427 |115| has taken a fork
-427 |155| is eating
-427 |115| has taken a fork
-427 |115| is eating
-427 |29| has taken a fork
-414 |46|is sleeping
-427 |29| has taken a fork
-427 |29| is eating
-427 |105| has taken a fork
-427 |21| has taken a fork
-427 |105| has taken a fork
-427 |21| is eating
-427 |43| has taken a fork
-427 |43| has taken a fork
-426 |193| is thinking
-426 |187| is thinking
-427 |43| is eating
-427 |193| has taken a fork
-427 |15| has taken a fork
-427 |15| is eating
-427 |193| has taken a fork
-427 |145| has taken a fork
-427 |193| is eating
-427 |145| has taken a fork
-427 |145| is eating
-427 |147| has taken a fork
-427 |147| has taken a fork
-427 |147| is eating
-427 |159| has taken a fork
-427 |159| has taken a fork
-427 |101| has taken a fork
-427 |159| is eating
-427 |101| has taken a fork
-427 |101| is eating
-427 |95| has taken a fork
-427 |95| has taken a fork
-427 |95| is eating
-427 |113| has taken a fork
-427 |173| has taken a fork
-427 |177| has taken a fork
-427 |177| has taken a fork
-427 |169| has taken a fork
-427 |177| is eating
-427 |185| has taken a fork
-427 |185| has taken a fork
-427 |185| is eating
-427 |169| has taken a fork
-427 |169| is eating
-427 |189| has taken a fork
-427 |189| has taken a fork
-427 |189| is eating
-427 |163| has taken a fork
-427 |73| has taken a fork
-426 |19| is eating
-427 |73| has taken a fork
-427 |73| is eating
-426 |179| is thinking
-427 |135| has taken a fork
-427 |135| has taken a fork
-427 |13| has taken a fork
-427 |135| is eating
-427 |111| has taken a fork
-427 |111| has taken a fork
-427 |111| is eating
-427 |143| has taken a fork
-427 |141| has taken a fork
-427 |141| has taken a fork
-427 |141| is eating
-427 |151| has taken a fork
-427 |153| has taken a fork
-427 |157| has taken a fork
-427 |143| has taken a fork
-427 |157| has taken a fork
-427 |9| has taken a fork
-427 |119| has taken a fork
-427 |9| is eating
-427 |119| has taken a fork
-427 |127| has taken a fork
-418 |58|is sleeping
-427 |127| has taken a fork
-427 |119| is eating
-418 |5| died
+402 |17| is thinking
+402 |19| is thinking
+403 |21| is thinking
+403 |25| is thinking
+404 |31| is thinking
+404 |6| is sleeping
+404 |4| is sleeping
+405 |37| is thinking
+405 |2| is sleeping
+406 |45| is thiProcess:         philo [24306]
+Path:            /Volumes/VOLUME/*/philo
+Load Address:    0x1064c6000
+Identifier:      philo
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [2698]
+
+Date/Time:       2021-10-01 21:02:49.663 +0100
+Launch Time:     2021-10-01 21:02:48.975 +0100
+OS Version:      Mac OS X 10.14.6 (18G103)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 11.3.1 (11C505)
+----
+
+leaks Report Version: 4.0
+Process 24306: 167 nodes malloced for 51 KB
+Process 24306: 0 leaks for 0 total leaked bytes.
+
+nking
+407 |53| is thinking
+407 |16| is sleeping
+408 |61| is thinking
+408 |20| is sleeping
+408 |11| is thinking
+409 |13| is thinking
+409 |13| has taken a fork
+409 |13| has taken a fork
+409 |13| is eating
+410 |73| is thinking
+410 |18| is sleeping
+410 |7| is thinking
+410 |7| has taken a fork
+410 |22| is sleeping
+402 |15| is thinking
+410 |15| has taken a fork
+410 |15| has taken a fork
+410 |15| is eating
+411 |81| is thinking
+412 |32| is sleeping
+412 |30| is sleeping
+412 |34| is sleeping
+412 |85| is thinking
+412 |28| is sleeping
+403 |23| is thinking
+412 |23| has taken a fork
+412 |23| has taken a fork
+412 |23| is eating
+413 |93| is thinking
+413 |36| is sleeping
+413 |97| is thinking
+413 |38| is sleeping
+413 |40| is sleeping
+404 |33| is thinking
+413 |33| has taken a fork
+413 |5|died
