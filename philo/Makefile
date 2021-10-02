@@ -6,13 +6,13 @@
 #    By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 16:13:15 by hmellahi          #+#    #+#              #
-#    Updated: 2021/10/01 20:29:25 by hmellahi         ###   ########.fr        #
+#    Updated: 2021/10/02 19:12:10 by hmellahi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CLANG = clang
+CLANG = gcc
 
-FLAGS = -lpthread -Wall -Werror -Wextra #-g -fsanitize=address #-Wall -Werror -Wextra
+FLAGS = -lpthread -Wall -Werror -Wextra
 
 NAME = philo
 
@@ -29,7 +29,3 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
-
-run:
-	$(CLANG) $(FLAGS) ${SRC} -o $(NAME)
-	./${NAME} 4  0 200 200
