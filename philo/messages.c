@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/10/02 19:30:52 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/05 18:08:47 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	print_msg(int msg_index, t_philo *philo)
 		printf("%llu %d is eating\n", time_in_ms, philo->index + 1);
 	else if (msg_index == PHILO_DIES)
 	{
+		pthread_mutex_lock(&philo->eat_mutex);
 		printf("%llu %d died\n", time_in_ms, philo->index + 1);
 		return (-1);
 	}

@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 02:06:49 by hamza             #+#    #+#             */
-/*   Updated: 2021/10/01 19:53:28 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/05 18:09:15 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,14 @@ typedef struct s_state
 
 typedef struct s_philo
 {
-	pid_t	pid;
-	int		index;
-	int		eat_count;
-	t_state	*state;
-	t_ul	last_time_eat;
-	sem_t	*semaphore;
-	char	status;
+	pid_t			pid;
+	int				index;
+	int				eat_count;
+	t_state			*state;
+	t_ul			last_time_eat;
+	sem_t			*semaphore;
+	char			status;
+	pthread_mutex_t	eat_mutex;
 }				t_philo;
 
 void			print_msg(int msg_index, t_philo *philo);
