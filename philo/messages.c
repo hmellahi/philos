@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/10/02 19:14:24 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/02 19:30:52 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	print_err(int msg_index)
 	messages[2] = "not valid args";
 	messages[3] = "COULDNT_CREATE_PROCESS";
 	printf("%s\n", messages[msg_index]);
-	clear_state(NULL, NULL, NULL);
 	return (-1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 06:06:08 by hamza             #+#    #+#             */
-/*   Updated: 2021/10/01 20:53:16 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/03 19:20:05 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ typedef struct s_state
 typedef struct s_philo
 {
 	int				status;
-	char			l_fork;
-	char			r_fork;
 	int				index;
 	int				eat_count;
 	t_state			*state;

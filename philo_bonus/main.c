@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 17:17:51 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/10/01 21:39:58 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/03 19:58:23 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	*checker(void *val)
 			print_msg(PHILO_DIES, philo);
 		if (n_must_eat > 0 && philo->eat_count >= n_must_eat)
 			exit(0);
-		usleep(100);
+		usleep(10);
 	}
 	return (val);
 }

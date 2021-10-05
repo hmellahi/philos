@@ -6,7 +6,7 @@
 /*   By: hmellahi <hmellahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:23:49 by hmellahi          #+#    #+#             */
-/*   Updated: 2021/10/01 19:47:36 by hmellahi         ###   ########.fr       */
+/*   Updated: 2021/10/03 19:28:12 by hmellahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	print_msg(int msg_index, t_philo *philo)
 {
 	unsigned long	time_in_ms;
 
-	time_in_ms = get_time();
+	time_in_ms = get_time() - philo->state->start;
 	sem_wait(philo->state->print_sem);
 	if (msg_index == PHILO_TAKES_FORK)
 		printf("%lu %d has taken a fork\n", time_in_ms, philo->index + 1);
